@@ -1,0 +1,210 @@
+# =========================================================
+# Comprehensive .gitignore for Vite + React Projects
+# Covers:
+# - Vite
+# - React
+# - Node.js
+# - npm / yarn / pnpm
+# - TypeScript
+# - Testing
+# - Environment files
+# - IDEs
+# - OS generated files
+# - Build outputs
+# - Logs & caches
+# =========================================================
+
+# =========================================================
+# Dependencies
+# =========================================================
+node_modules/
+
+# pnpm
+.pnpm-store/
+
+# npm
+.npm/
+
+# yarn
+.yarn/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Bun
+bun.lockb
+
+# =========================================================
+# Build Outputs
+# =========================================================
+dist/
+build/
+out/
+coverage/
+
+# Vite cache
+.vite/
+
+# Storybook
+storybook-static/
+
+# =========================================================
+# Environment Variables
+# =========================================================
+.env
+.env.*
+!.env.example
+
+# Common environment variants
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================================================
+# Logs
+# =========================================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime logs
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================================================
+# Testing
+# =========================================================
+
+# Jest
+coverage/
+.jest/
+
+# Vitest
+vitest.config.ts.timestamp-*
+.vitest/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Playwright
+playwright-report/
+test-results/
+
+# =========================================================
+# TypeScript
+# =========================================================
+*.tsbuildinfo
+
+# =========================================================
+# ESLint / Stylelint
+# =========================================================
+.eslintcache
+.stylelintcache
+
+# =========================================================
+# Parcel / Next / Nuxt / Misc Build Tools
+# (Safe to keep even if unused)
+# =========================================================
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+
+# =========================================================
+# IDE & Editor Files
+# =========================================================
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# JetBrains
+.idea/
+*.iml
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# =========================================================
+# OS Generated Files
+# =========================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# =========================================================
+# Temporary Files
+# =========================================================
+tmp/
+temp/
+*.tmp
+*.temp
+
+# =========================================================
+# Firebase
+# =========================================================
+.firebase/
+firebase-debug.log
+
+# =========================================================
+# Docker
+# =========================================================
+.docker/
+
+# =========================================================
+# Local Database Files
+# =========================================================
+*.sqlite
+*.sqlite3
+
+# =========================================================
+# Misc
+# =========================================================
+*.tgz
+
+# Optional:
+# Uncomment if you never want lockfiles committed
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# =========================================================
+# Generated Assets (optional)
+# Uncomment if applicable
+# =========================================================
+# public/generated/
+# src/generated/
+# screenshots/
+# exports/
+
+# =========================================================
+# End
+# =========================================================
