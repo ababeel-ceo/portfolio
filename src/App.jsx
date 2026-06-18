@@ -1,29 +1,30 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
+import Impact from './components/Impact';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
+import CaseStudies from './components/CaseStudies';
+import Skills from './components/Skills';
 import Achievements from './components/Achievements';
+import WhyHireMe from './components/WhyHireMe';
+import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="relative overflow-hidden">
-      {/* Background gradient orbs */}
-      <div className="glow-orb w-96 h-96 bg-primary-500 top-0 -left-48 fixed" />
-      <div className="glow-orb w-96 h-96 bg-cyan-500 top-1/3 -right-48 fixed" />
-      <div className="glow-orb w-64 h-64 bg-primary-700 bottom-1/4 left-1/4 fixed" />
-
+    <div className="relative overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
         <About />
-        <Skills />
+        <Impact />
         <Experience />
-        <Projects />
+        <CaseStudies />
+        <Skills />
         <Achievements />
+        <WhyHireMe />
+        <Resume />
         <Contact />
       </main>
       <Footer />
