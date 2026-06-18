@@ -39,9 +39,9 @@ export default function Navbar() {
           <span className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary-900/40">
             AB
           </span>
-          <span className="hidden sm:flex flex-col leading-none">
-            <span className="text-white font-bold text-sm tracking-tight">{profile.name}</span>
-            <span className="text-surface-400 text-[11px]">{profile.title}</span>
+          <span className="hidden sm:flex flex-col leading-tight">
+            <span className="text-white font-bold text-[15px] tracking-tight">{profile.name}</span>
+            <span className="text-primary-300/90 text-[11px] font-semibold uppercase tracking-[0.12em]">{profile.title}</span>
           </span>
         </a>
 

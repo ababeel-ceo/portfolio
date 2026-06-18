@@ -17,7 +17,7 @@ export default function Impact() {
               Proof of <span className="gradient-text">delivery</span>, at a glance.
             </h2>
             <p className="section-subtitle">
-              A snapshot of what I have shipped — enterprise applications in production, across multiple business domains, recognized with corporate awards.
+              The numbers behind the work — 5.7M+ transactions processed, manual effort cut by 80%, and resolution times down 40%, across enterprise systems recognized with corporate awards.
             </p>
           </div>
 

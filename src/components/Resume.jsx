@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { profile, links } from '../data/profile';
+import { profile, links, RESUME_DOWNLOAD_NAME } from '../data/profile';
 import { Icons } from './Icons';
 
 export default function Resume() {
@@ -69,7 +69,7 @@ export default function Resume() {
                     <Icons.eye className="w-4 h-4" />
                     View Resume
                   </a>
-                  <a href={links.resume} download className="btn-accent">
+                  <a href={links.resume} download={RESUME_DOWNLOAD_NAME} className="btn-accent">
                     <Icons.download className="w-4 h-4" />
                     Download Resume
                   </a>

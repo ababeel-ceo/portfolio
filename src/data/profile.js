@@ -2,14 +2,16 @@
 //  SINGLE SOURCE OF TRUTH — edit your content here, the whole site updates.
 // ============================================================================
 
-// Resume: drop your file at  public/resume.pdf  and this resolves to
-// /portfolio/resume.pdf automatically. To use a hosted link (Drive/Dropbox),
+// Resume: the file lives at  public/Abdulla.pdf  and this resolves to
+// /portfolio/Abdulla.pdf automatically. To use a hosted link (Drive/Dropbox),
 // just replace the line below with the full URL string.
-export const RESUME_URL = `${import.meta.env.BASE_URL}resume.pdf`;
+export const RESUME_URL = `${import.meta.env.BASE_URL}Abdulla.pdf`;
+// Filename used when the visitor downloads the résumé.
+export const RESUME_DOWNLOAD_NAME = 'Abdulla_B_Software_Engineer_Resume.pdf';
 
 export const profile = {
   name: 'Abdulla B',
-  title: 'Java Full Stack Developer',
+  title: 'Software Engineer',
   company: 'Vivant360 Software Services',
   experience: '3+ Years',
   location: 'Tamil Nadu, India',
@@ -39,9 +41,10 @@ export const navLinks = [
 export const hero = {
   headline: 'Building enterprise software that automates business operations and improves customer experience.',
   subheadline:
-    'Java Full Stack Developer with 3+ years of experience delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms.',
+    'Software Engineer with 3+ years of experience delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms.',
   badges: [
     '3+ Years Experience',
+    'Led a 6-Member Team',
     '6+ Enterprise Applications Delivered',
     'Award-Winning Contributor',
     'Full Stack Development Ownership',
@@ -49,7 +52,7 @@ export const hero = {
   ],
   stats: [
     { value: '6+', label: 'Enterprise Apps Delivered' },
-    { value: '3+', label: 'Years of Experience' },
+    { value: '4+', label: 'Years of Experience' },
     { value: '2', label: 'Corporate Awards' },
     { value: '4', label: 'Business Domains' },
   ],
@@ -57,14 +60,14 @@ export const hero = {
 
 export const about = {
   lead:
-    'I am a Java Full Stack Developer who measures success by business outcomes, not lines of code. Over 3+ years at Vivant360 Software Services I have owned enterprise applications end to end — from React interfaces to Spring Boot services and the data layer beneath them.',
+    'I am a Software Engineer who measures success by business outcomes, not lines of code. Over 3+ years at Vivant360 Software Services I have owned enterprise applications end to end — from React interfaces to Spring Boot services and the data layer beneath them, while leading a 6-member team.',
   paragraphs: [
     'My work sits where engineering meets operations: identity and access governance, insurance operations, document automation, warranty and complaint workflows, and self-service content platforms. In each, I started from a real business problem — manual effort, slow turnaround, fragmented visibility — and delivered software that automated it.',
     'I take ownership across the full delivery lifecycle: understanding the domain, designing the architecture, building secure and scalable services, shipping the UI, and supporting it in production. That mindset earned me two corporate awards and the trust to lead delivery on systems that run real business operations.',
     'I care about clean architecture, maintainable code, and the realities of live systems — and I keep learning so the next system I deliver is better than the last.',
   ],
   facts: [
-    { label: 'Role', value: 'Java Full Stack Developer' },
+    { label: 'Role', value: 'Software Engineer' },
     { label: 'Company', value: 'Vivant360 Software Services' },
     { label: 'Education', value: 'MCA' },
     { label: 'Location', value: 'Tamil Nadu, India' },
@@ -94,25 +97,27 @@ export const about = {
 };
 
 // Executive dashboard — visible, recruiter-first proof at a glance.
+// Numbers are sourced directly from the resume for verifiable, quantifiable impact.
 export const impactMetrics = [
-  { value: '6+', label: 'Enterprise Applications Delivered', emphasis: true },
-  { value: '3+', label: 'Years of Experience' },
-  { value: '2', label: 'Corporate Awards', accent: true },
-  { value: 'Multiple', label: 'Production Deployments' },
-  { value: '10+', label: 'Core Technologies' },
-  { value: 'Multiple', label: 'Workflow Automation Projects' },
-  { value: 'End-to-End', label: 'Full Stack Ownership' },
+  { value: '5.7M+', label: 'Financial Transactions Processed', emphasis: true },
+  { value: '80%', label: 'Reduction in Manual Processing', accent: true },
+  { value: '40%', label: 'Faster Complaint Resolution' },
+  { value: '2.3×', label: 'Transaction Engine Scaled (2.5M → 5.7M)' },
+  { value: '6+', label: 'Enterprise Applications Delivered' },
+  { value: '6', label: 'Team Members Led' },
+  { value: '2', label: 'Corporate Awards' },
   { value: 'Insurance · IAM · OCR · CRM', label: 'Business Domains', wide: true },
 ];
 
 export const experience = {
-  role: 'Java Full Stack Developer',
+  role: 'Software Engineer',
   company: 'Vivant360 Software Services',
   location: 'Tamil Nadu, India',
   period: '3+ Years · Full-time',
   summary:
     'Owning enterprise application delivery across identity, insurance, automation, and customer-service domains — from architecture and secure Spring Boot services to React interfaces and production support.',
   highlights: [
+    'Led a 6-member team across the delivery lifecycle — coordinating design, implementation, and production support to ship enterprise systems on time.',
     'Delivered 6+ enterprise applications spanning Identity & Access Management, B2B insurance operations, OCR document automation, warranty and complaint workflows, and a self-service template platform.',
     'Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design — with Redis and Redis Streams for caching and asynchronous processing.',
     'Standardized security across systems with JWT authentication and role-based access control (RBAC), reducing duplicated access logic and strengthening governance.',
