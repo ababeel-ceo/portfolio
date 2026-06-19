@@ -25,9 +25,9 @@ export default function Footer() {
             <p className="text-surface-400 text-sm leading-relaxed max-w-sm">
               {profile.title} building enterprise software that automates business operations and improves customer experience.
             </p>
-            <a href={links.resume} target="_blank" rel="noopener noreferrer" className="btn-outline mt-6 !py-2.5 text-xs">
-              <Icons.download className="w-4 h-4" />
-              Download Resume
+            <a href="#contact" className="btn-outline mt-6 !py-2.5 text-xs">
+              <Icons.mail className="w-4 h-4" />
+              Get in touch
             </a>
           </div>
 

@@ -41,18 +41,18 @@ export const navLinks = [
 export const hero = {
   headline: 'Building enterprise software that automates business operations and improves customer experience.',
   subheadline:
-    'Software Engineer with 3+ years of experience delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms.',
+    'Full-stack Software Engineer with 3+ years delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms — and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
   badges: [
     '3+ Years Experience',
     'Led a 6-Member Team',
     '6+ Enterprise Applications Delivered',
     'Award-Winning Contributor',
     'Full Stack Development Ownership',
-    'Production Systems Experience',
+    'Exploring Agentic & Generative AI',
   ],
   stats: [
     { value: '6+', label: 'Enterprise Apps Delivered' },
-    { value: '4+', label: 'Years of Experience' },
+    { value: '3+', label: 'Years of Experience' },
     { value: '2', label: 'Corporate Awards' },
     { value: '4', label: 'Business Domains' },
   ],
@@ -64,7 +64,8 @@ export const about = {
   paragraphs: [
     'My work sits where engineering meets operations: identity and access governance, insurance operations, document automation, warranty and complaint workflows, and self-service content platforms. In each, I started from a real business problem — manual effort, slow turnaround, fragmented visibility — and delivered software that automated it.',
     'I take ownership across the full delivery lifecycle: understanding the domain, designing the architecture, building secure and scalable services, shipping the UI, and supporting it in production. That mindset earned me two corporate awards and the trust to lead delivery on systems that run real business operations.',
-    'I care about clean architecture, maintainable code, and the realities of live systems — and I keep learning so the next system I deliver is better than the last.',
+    'That same curiosity now points squarely at AI. I am an AI enthusiast actively exploring Agentic AI systems and modern AI-powered workflows — experimenting with leading models, tools, and frameworks to understand where they genuinely lift developer productivity, automation, and problem-solving, and how to apply them responsibly inside real engineering work.',
+    'I care about clean architecture, maintainable code, and the realities of live systems — and I keep learning, so the next system I deliver is better than the last.',
   ],
   facts: [
     { label: 'Role', value: 'Software Engineer' },
@@ -92,6 +93,11 @@ export const about = {
       number: '04',
       title: 'Workflow automation focus',
       desc: 'I turn manual, fragmented processes into automated, auditable, and continuously improvable workflows.',
+    },
+    {
+      number: '05',
+      title: 'AI-curious & always learning',
+      desc: 'I stay current with Generative and Agentic AI — experimenting with new models and frameworks and folding what genuinely works into how I build.',
     },
   ],
 };
@@ -122,6 +128,7 @@ export const experience = {
     'Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design — with Redis and Redis Streams for caching and asynchronous processing.',
     'Standardized security across systems with JWT authentication and role-based access control (RBAC), reducing duplicated access logic and strengthening governance.',
     'Automated manual, fragmented business processes into auditable workflows — improving operational efficiency, turnaround, and visibility.',
+    'Actively expanding into AI engineering — exploring Agentic AI, generative models, and AI-assisted development to bring intelligent automation into the next generation of systems I build.',
     'Recognized with the Outstanding Excellence Award (2023) and a Client Recognition Award (2024) for measurable business impact.',
   ],
   tech: [
@@ -339,6 +346,42 @@ export const caseStudies = [
       { value: 'Business', label: 'Enablement' },
     ],
   },
+  {
+    id: 'scroll-blocker',
+    name: 'Scroll Blocker — Focus & Digital Wellbeing',
+    domain: 'Native Android · Personal Project',
+    iconKey: 'target',
+    gradient: 'from-violet-400 to-brand-500',
+    image: null,
+    repo: 'https://github.com/ababeel-ceo/scroll-blocker',
+    overview:
+      'A self-initiated native Android app that curbs compulsive infinite scrolling system-wide by intercepting scroll gestures through the Android Accessibility Service. With Kotlin outside my core stack, I paired strong engineering fundamentals with AI-assisted development to learn the ecosystem and ship a working MVP fast.',
+    challenge:
+      'Two challenges in one: infinite-scroll feeds are deliberately engineered to be habit-forming, and most “focus” tools can only block an entire app — while I was also building in Kotlin and the Android platform, a stack outside my primary experience.',
+    contribution: [
+      'Conceived, architected, and shipped the MVP solo — owning product direction, UX, and engineering from a blank repository to a working build.',
+      'Rapidly learned Kotlin and the Android platform on a real project, using AI-assisted development to accelerate research, implementation, and troubleshooting.',
+      'Evaluated, refined, and validated AI-generated solutions with code review and testing — adapting them to the app’s architecture rather than accepting them as-is.',
+      'Built the core blocking engine that detects and interrupts scroll gestures globally using the Android Accessibility Service.',
+      'Designed a guided onboarding flow (Welcome → Permissions → Dashboard) and persisted state with Jetpack DataStore under a clean MVVM architecture.',
+    ],
+    architecture: [
+      'Kotlin and Jetpack Compose UI following the MVVM pattern for a reactive, testable presentation layer.',
+      'Android Accessibility Service as the always-on runtime that observes and intercepts scroll events across other apps.',
+      'Preferences DataStore for asynchronous, durable configuration; Gradle (Kotlin DSL) build pipeline.',
+    ],
+    tech: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Accessibility Service', 'DataStore', 'AI-Assisted Dev', 'Gradle (KTS)'],
+    outcome:
+      'Delivered a working MVP in an unfamiliar ecosystem by combining software-engineering fundamentals with AI-assisted development workflows — demonstrating the ability to rapidly learn new technologies, adapt to unfamiliar environments, and translate ideas into practical software efficiently.',
+    learnings:
+      'The real lesson was process over platform: with solid fundamentals and a disciplined approach to validating AI-generated code, limited prior exposure to a stack is no longer a barrier to shipping quality software.',
+    metrics: [
+      { value: 'New Stack', label: 'Learned & Shipped' },
+      { value: 'AI-Assisted', label: 'Development Workflow' },
+      { value: '100% Kotlin', label: 'Native Android' },
+      { value: 'Solo Build', label: 'End-to-End Ownership' },
+    ],
+  },
 ];
 
 export const awards = [
@@ -436,8 +479,8 @@ export const whyHireMe = [
     iconKey: 'server',
   },
   {
-    title: 'Workflow Automation Expert',
-    desc: 'I turn manual, fragmented processes into automated, auditable, and efficient workflows.',
-    iconKey: 'workflow',
+    title: 'AI-Augmented Engineer',
+    desc: 'An AI enthusiast exploring Agentic AI and generative tools — experimenting with leading models and frameworks to automate workflows and accelerate delivery.',
+    iconKey: 'sparkle',
   },
 ];

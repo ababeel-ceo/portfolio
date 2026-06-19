@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { whyHireMe, links } from '../data/profile';
+import { whyHireMe } from '../data/profile';
 import { Icons } from './Icons';
 
 export default function WhyHireMe() {
@@ -39,15 +39,10 @@ export default function WhyHireMe() {
               <p className="text-surface-300 text-sm leading-relaxed mb-4">
                 Let’s talk about the impact I can deliver for you.
               </p>
-              <div className="flex flex-col gap-2.5">
-                <a href={links.resume} target="_blank" rel="noopener noreferrer" className="btn-accent w-full !py-2.5 text-xs">
-                  <Icons.download className="w-4 h-4" />
-                  Download Resume
-                </a>
-                <a href="#contact" className="btn-outline w-full !py-2.5 text-xs">
-                  Get in touch
-                </a>
-              </div>
+              <a href="#contact" className="btn-accent w-full !py-2.5 text-xs">
+                <Icons.mail className="w-4 h-4" />
+                Get in touch
+              </a>
             </div>
           </div>
         </div>

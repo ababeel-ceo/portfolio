@@ -82,9 +82,9 @@ export default function Hero() {
                 <Icons.chart className="w-4 h-4" />
                 Explore My Impact
               </a>
-              <a href={links.resume} target="_blank" rel="noopener noreferrer" className="btn-outline">
-                <Icons.download className="w-4 h-4" />
-                Download Resume
+              <a href="#contact" className="btn-outline">
+                <Icons.mail className="w-4 h-4" />
+                Get in touch
               </a>
             </div>
 
@@ -132,6 +132,18 @@ export default function Hero() {
                 <p className="text-surface-400 text-xs uppercase tracking-wider mb-2">Domains delivered</p>
                 <div className="flex flex-wrap gap-2">
                   {['IAM', 'Insurance', 'OCR Automation', 'Workflows', 'CRM'].map((d) => (
+                    <span key={d} className="tech-chip">{d}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-5 pt-5 border-t border-surface-700/50">
+                <p className="text-surface-400 text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <Icons.sparkle className="w-3.5 h-3.5 text-primary-300" />
+                  Currently exploring
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Agentic AI', 'Generative AI', 'AI Tooling', 'Intelligent Automation'].map((d) => (
                     <span key={d} className="tech-chip">{d}</span>
                   ))}
                 </div>

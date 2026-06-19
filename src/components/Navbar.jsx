@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { navLinks, links, profile } from '../data/profile';
-import { Icons } from './Icons';
+import { navLinks, profile } from '../data/profile';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,10 +55,6 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center gap-2.5">
-          <a href={links.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-            <Icons.download className="w-4 h-4" />
-            Resume
-          </a>
           <a href="#contact" className="btn-primary text-xs py-2.5 px-5">
             Get in touch
           </a>
@@ -98,21 +93,11 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <div className="grid grid-cols-2 gap-2.5 pt-3">
-            <a
-              href={links.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="btn-outline text-sm py-2.5"
-            >
-              <Icons.download className="w-4 h-4" />
-              Resume
-            </a>
+          <div className="pt-3">
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary text-sm py-2.5"
+              className="btn-primary w-full text-sm py-2.5"
             >
               Get in touch
             </a>

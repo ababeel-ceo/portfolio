@@ -61,22 +61,20 @@ export default function Resume() {
                   Your next hire, <span className="gradient-text">on one page.</span>
                 </h2>
                 <p className="text-surface-300 leading-relaxed mb-7 max-w-md">
-                  Three years of enterprise delivery, six production applications, and two corporate awards — summarized for a fast recruiter scan.
+                  3+ years of enterprise delivery, six production applications, and two corporate awards — summarized for a fast recruiter scan.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a href={links.resume} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                    <Icons.eye className="w-4 h-4" />
-                    View Resume
-                  </a>
-                  <a href={links.resume} download={RESUME_DOWNLOAD_NAME} className="btn-accent">
-                    <Icons.download className="w-4 h-4" />
-                    Download Resume
-                  </a>
-                </div>
+                <a
+                  href={links.resume}
+                  download={RESUME_DOWNLOAD_NAME}
+                  className="btn-primary w-full sm:w-auto !px-8 !py-4 text-base"
+                >
+                  <Icons.download className="w-5 h-5" />
+                  Download Resume
+                </a>
                 <p className="mt-4 text-surface-500 text-xs flex items-center gap-1.5">
-                  <Icons.external className="w-3.5 h-3.5" />
-                  Opens in a new tab · PDF format
+                  <Icons.eye className="w-3.5 h-3.5" />
+                  PDF format · or tap the preview to view it in your browser
                 </p>
               </div>
             </div>
