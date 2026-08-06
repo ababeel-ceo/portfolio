@@ -3,7 +3,7 @@
 // ============================================================================
 
 // Resume: the file lives at  public/Abdulla.pdf  and this resolves to
-// /portfolio/Abdulla.pdf automatically. To use a hosted link (Drive/Dropbox),
+// /Abdulla.pdf automatically. To use a hosted link (Drive/Dropbox),
 // just replace the line below with the full URL string.
 export const RESUME_URL = `${import.meta.env.BASE_URL}Abdulla.pdf`;
 // Filename used when the visitor downloads the résumé.
@@ -25,7 +25,7 @@ export const links = {
   linkedin: 'https://in.linkedin.com/in/abdullathepro',
   github: 'https://github.com/ababeel-ceo',
   leetcode: 'https://leetcode.com/u/abdullahsmsapk/',
-  portfolio: 'https://ababeel-ceo.github.io/portfolio/',
+  portfolio: 'https://abdullathepro.online/',
   resume: RESUME_URL,
 };
 

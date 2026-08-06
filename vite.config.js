@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio/'
+  // Site is served from the root of the custom domain https://abdullathepro.online
+  base: '/'
 });
