@@ -1,0 +1,4 @@
+# GitHub Pages reads public/CNAME byte-for-byte; a CRLF ending can invalidate
+# the custom domain. Keep it LF regardless of the checkout platform.
+public/CNAME text eol=lf
+CNAME text eol=lf
