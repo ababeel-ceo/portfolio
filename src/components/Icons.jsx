@@ -40,6 +40,22 @@ export const Icons = {
       <path d="M8 9h8M8 12h5" />
     </svg>
   ),
+  send: (p) => (
+    <svg {...stroke} {...p}>
+      <path d="M4 12l16-8-6 16-3-6-7-2z" />
+    </svg>
+  ),
+  close: (p) => (
+    <svg {...stroke} {...p}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  ),
+  refresh: (p) => (
+    <svg {...stroke} {...p}>
+      <path d="M4 9a8 8 0 0113.5-3.5L20 8M20 4v4h-4" />
+      <path d="M20 15a8 8 0 01-13.5 3.5L4 16M4 20v-4h4" />
+    </svg>
+  ),
   layout: (p) => (
     <svg {...stroke} {...p}>
       <rect x="3" y="4" width="18" height="16" rx="2" />
