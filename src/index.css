@@ -3,32 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Shared ambient tint used by the page backdrop and section glows. */
+    --glow-a: rgba(35, 138, 175, 0.16);
+    --glow-b: rgba(19, 71, 90, 0.22);
+    --hairline: rgba(255, 255, 255, 0.07);
+  }
+
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6.5rem;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-surface-950 text-surface-200 font-sans antialiased;
+    @apply bg-surface-950 text-surface-300 font-sans antialiased;
     background-image:
-      radial-gradient(60rem 40rem at 80% -10%, rgba(35, 138, 175, 0.10), transparent 60%),
-      radial-gradient(50rem 40rem at -10% 20%, rgba(19, 71, 90, 0.18), transparent 55%);
+      radial-gradient(72rem 46rem at 82% -12%, var(--glow-a), transparent 62%),
+      radial-gradient(56rem 44rem at -12% 14%, var(--glow-b), transparent 58%),
+      radial-gradient(48rem 40rem at 50% 118%, rgba(35, 138, 175, 0.1), transparent 60%);
     background-attachment: fixed;
   }
 
   ::selection {
-    @apply bg-primary-500/30 text-white;
+    @apply bg-primary-500/[0.35] text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-400/70 ring-offset-2 ring-offset-surface-950 rounded-lg;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     @apply bg-surface-950;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-surface-700 rounded-full;
-    border: 2px solid #081317;
+    border: 3px solid #050c10;
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-surface-600;
@@ -36,161 +49,198 @@
 }
 
 @layer components {
+  /* ── Layout ─────────────────────────────────────────────────────────── */
   .section-container {
-    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+    @apply w-full max-w-[84rem] mx-auto px-5 sm:px-8 lg:px-10;
   }
 
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-20 md:py-28 lg:py-32;
   }
 
-  /* Eyebrow / section label */
+  /* Soft seam between sections instead of a hard border line. */
+  .section-seam {
+    @apply relative;
+  }
+  .section-seam::before,
+  .section-seam::after {
+    content: '';
+    @apply absolute inset-x-0 h-px pointer-events-none;
+    background: linear-gradient(90deg, transparent, var(--hairline) 18%, var(--hairline) 82%, transparent);
+  }
+  .section-seam::before {
+    @apply top-0;
+  }
+  .section-seam::after {
+    @apply bottom-0;
+  }
+
+  /* ── Type ───────────────────────────────────────────────────────────── */
   .eyebrow {
-    @apply flex w-fit items-center gap-2 text-primary-300 font-mono text-[11px] font-medium
-           tracking-[0.22em] uppercase mb-4;
+    @apply flex w-fit items-center gap-2.5 text-primary-300 font-mono text-[10px] sm:text-[11px]
+           font-medium tracking-[0.28em] uppercase mb-5;
   }
   .eyebrow::before {
     content: '';
-    @apply w-6 h-px bg-primary-400/60;
+    @apply w-7 h-px bg-gradient-to-r from-transparent to-primary-400/80;
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white tracking-tight leading-[1.1];
+    @apply font-display text-[1.9rem] sm:text-4xl lg:text-[2.9rem] font-semibold text-white
+           tracking-[-0.02em] leading-[1.12];
   }
 
   .section-subtitle {
-    @apply text-surface-300 text-base md:text-lg leading-relaxed max-w-2xl;
+    @apply text-surface-300 text-base md:text-[1.0625rem] leading-relaxed max-w-2xl text-pretty;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-300 via-primary-400 to-primary-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-200 via-primary-300 to-primary-500 bg-clip-text text-transparent;
   }
 
-  .divider {
-    @apply w-14 h-1 bg-gradient-to-r from-primary-500 to-primary-300 rounded-full;
+  /* Small uppercase mono label used on card headers and stat tiles. */
+  .kicker {
+    @apply flex items-center gap-2 font-mono text-[10px] font-medium uppercase
+           tracking-[0.24em] text-surface-400;
   }
 
-  /* Cards */
+  /* ── Cards ──────────────────────────────────────────────────────────── */
   .card {
-    @apply relative bg-surface-900/60 border border-surface-700/50 rounded-2xl backdrop-blur-sm
-           transition-all duration-300;
+    @apply relative rounded-3xl border border-white/[0.07] bg-surface-900/60 backdrop-blur-xl
+           shadow-card transition-[transform,border-color,box-shadow,background-color]
+           duration-500 ease-out;
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.045), transparent 42%);
   }
+
   .card-hover {
-    @apply hover:border-primary-500/40 hover:bg-surface-800/60
-           hover:shadow-[0_18px_50px_-22px_rgba(35,138,175,0.45)] hover:-translate-y-1;
+    @apply hover:-translate-y-1 hover:border-primary-400/[0.35] hover:shadow-lift;
   }
 
-  /* Buttons */
+  /* Accent card: used for the single most important tile in a grid. */
+  .card-accent {
+    @apply border-primary-400/25;
+    background-image:
+      linear-gradient(160deg, rgba(106, 212, 237, 0.14), transparent 55%),
+      linear-gradient(0deg, rgba(35, 138, 175, 0.08), rgba(35, 138, 175, 0.08));
+  }
+
+  /* Thin luminous rule that runs along the top edge of a feature card. */
+  .card-topline::before {
+    content: '';
+    @apply absolute inset-x-8 top-0 h-px pointer-events-none;
+    background: linear-gradient(90deg, transparent, rgba(106, 212, 237, 0.55), transparent);
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────────────── */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2.5 rounded-full
+           px-6 py-3.5 text-sm font-semibold tracking-[-0.01em]
+           transition-all duration-300 ease-out active:translate-y-0 active:scale-[0.985]
+           whitespace-nowrap;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5
-           bg-primary-500 text-white font-semibold text-sm
-           rounded-xl hover:bg-primary-400 active:bg-primary-600
-           transition-all duration-300 ease-out
-           shadow-lg shadow-primary-900/40 hover:shadow-xl hover:shadow-primary-500/25
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
-  .btn-accent {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5
-           bg-accent-500 text-white font-semibold text-sm
-           rounded-xl hover:bg-accent-600 active:bg-accent-700
-           transition-all duration-300 ease-out
-           shadow-lg shadow-accent-900/40 hover:shadow-xl hover:shadow-accent-500/25
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5
-           border border-surface-600/70 text-surface-200 font-semibold text-sm
-           rounded-xl hover:border-primary-400/60 hover:text-primary-300 hover:bg-primary-500/5
-           transition-all duration-300 ease-out;
-  }
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2
-           text-surface-300 font-medium text-sm
-           rounded-lg hover:text-white hover:bg-surface-800/70
-           transition-all duration-200;
+    @apply btn text-surface-950 bg-gradient-to-b from-primary-200 to-primary-400
+           shadow-[0_10px_30px_-12px_rgba(56,188,220,0.7)]
+           hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-14px_rgba(56,188,220,0.75)]
+           hover:from-primary-100 hover:to-primary-300;
   }
 
-  /* Pills & chips */
-  .pill {
-    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full
-           bg-surface-800/60 border border-surface-700/50 text-surface-200 text-xs font-medium;
+  .btn-accent {
+    @apply btn text-white bg-gradient-to-b from-accent-400 to-accent-600
+           shadow-[0_10px_30px_-12px_rgba(230,57,70,0.65)]
+           hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-14px_rgba(230,57,70,0.7)];
   }
+
+  .btn-outline {
+    @apply btn border border-white/[0.12] bg-white/[0.03] text-surface-100 backdrop-blur-sm
+           hover:-translate-y-0.5 hover:border-primary-300/[0.45] hover:bg-primary-500/10
+           hover:text-white;
+  }
+
+  /* ── Pills & chips ──────────────────────────────────────────────────── */
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/[0.08]
+           bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-surface-200 backdrop-blur-sm;
+  }
+
   .tech-chip {
-    @apply px-3 py-1.5 rounded-lg bg-surface-800/70 text-surface-300 text-xs font-medium
-           border border-surface-700/50 transition-all duration-300;
+    @apply rounded-full border border-white/[0.07] bg-white/[0.03] px-3 py-1.5
+           text-xs font-medium text-surface-300 transition-all duration-300;
   }
   .tech-chip:hover {
-    @apply border-primary-500/40 text-primary-300 bg-primary-500/5;
+    @apply border-primary-400/40 bg-primary-500/10 text-primary-200;
   }
 
-  /* Nav */
-  .nav-link {
-    @apply relative px-3.5 py-2 text-sm text-surface-300 rounded-lg transition-colors duration-200;
+  /* Live status dot with a soft expanding halo. */
+  .status-dot {
+    @apply relative inline-flex h-2 w-2 shrink-0;
   }
-  .nav-link::after {
+  .status-dot::before {
     content: '';
-    @apply absolute bottom-1 left-3.5 right-3.5 h-px bg-primary-400 scale-x-0
-           transition-transform duration-300 origin-left;
+    @apply absolute inset-0 rounded-full bg-emerald-400 animate-pulse-ring;
   }
-  .nav-link:hover {
-    @apply text-white;
+  .status-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-emerald-400
+           shadow-[0_0_10px_2px_rgba(52,211,153,0.45)];
+  }
+
+  /* ── Nav ────────────────────────────────────────────────────────────── */
+  .nav-link {
+    @apply relative rounded-full px-3.5 py-2 text-[13px] font-medium text-surface-300
+           transition-colors duration-300 hover:text-white;
+  }
+  .nav-link::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-white/[0.06] opacity-0 transition-opacity duration-300;
+  }
+  .nav-link:hover::before {
+    @apply opacity-100;
   }
   .nav-link.active {
-    @apply text-primary-300;
+    @apply text-primary-200;
   }
-  .nav-link.active::after {
-    @apply scale-x-100;
+  .nav-link.active::before {
+    @apply opacity-100 bg-primary-500/[0.12];
   }
 
-  /* Metric cells */
+  /* ── Metric cells ───────────────────────────────────────────────────── */
   .metric-cell {
-    @apply p-3.5 rounded-xl bg-surface-800/50 border border-surface-700/40;
+    @apply rounded-2xl border border-white/[0.06] bg-white/[0.03] p-3.5;
   }
   .metric-value {
-    @apply text-base md:text-lg font-bold text-primary-300 leading-tight;
+    @apply font-display text-base md:text-lg font-semibold text-primary-200 leading-tight;
   }
   .metric-label {
-    @apply text-surface-400 text-[11px] mt-1 leading-snug;
+    @apply mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-surface-400 leading-snug;
   }
 
-  /* Vertical timeline step (case study flow & experience) */
-  .flow-step {
-    @apply relative pl-7 pb-5 last:pb-0;
-  }
-  .flow-step::before {
-    content: '';
-    @apply absolute left-[7px] top-2 bottom-0 w-px bg-surface-700/60;
-  }
-  .flow-step:last-child::before {
-    @apply hidden;
-  }
-  .flow-dot {
-    @apply absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-primary-500/60 bg-surface-900;
-  }
-
-  /* Stylized product preview window (case study visual placeholder) */
+  /* ── Case-study preview window ──────────────────────────────────────── */
   .preview-window {
-    @apply relative rounded-xl overflow-hidden border border-surface-700/60 bg-surface-950/60;
+    @apply relative overflow-hidden rounded-2xl border border-white/[0.08] bg-surface-950/70;
   }
   .preview-bar {
-    @apply flex items-center gap-1.5 px-3 h-8 border-b border-surface-700/50 bg-surface-900/80;
+    @apply flex h-9 items-center gap-1.5 border-b border-white/[0.06] bg-white/[0.03] px-3.5;
   }
   .preview-dot {
-    @apply w-2.5 h-2.5 rounded-full bg-surface-600;
+    @apply h-2.5 w-2.5 rounded-full bg-surface-600;
   }
 }
 
 @layer utilities {
   .reveal {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -198,28 +248,28 @@
     text-wrap: pretty;
   }
 
-  /* Edge-fade mask for the badge marquee */
-  .mask-fade-x {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  /* Fine grid texture used behind the hero. */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(106, 212, 237, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(106, 212, 237, 0.35) 1px, transparent 1px);
+    background-size: 76px 76px;
+    -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 38%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 78% 62% at 50% 38%, #000 35%, transparent 100%);
   }
 
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
-  .animation-delay-700 { animation-delay: 700ms; }
-  .animation-delay-800 { animation-delay: 800ms; }
-
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
     }
-    .reveal { opacity: 1; transform: none; }
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
   }
 }

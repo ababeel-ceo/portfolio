@@ -40,6 +40,20 @@ export const navLinks = [
 
 export const hero = {
   headline: 'Building enterprise software that automates business operations and improves customer experience.',
+  // Rotated by the hero's typewriter line.
+  roles: [
+    'Full Stack Engineer',
+    'Backend Engineer',
+    'Enterprise App Developer',
+    'AI-Augmented Engineer',
+  ],
+  availability: 'Open to Full Stack, Backend & AI engineering roles',
+  domains: ['IAM', 'Insurance', 'OCR Automation', 'Workflows', 'CRM'],
+  exploring: ['Agentic AI', 'Generative AI', 'AI Tooling', 'Intelligent Automation'],
+  recognition: [
+    { name: 'Outstanding Excellence Award', year: '2023' },
+    { name: 'Client Recognition Award', year: '2024' },
+  ],
   subheadline:
     'Full-stack Software Engineer with 3+ years delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms — and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
   badges: [
@@ -143,6 +157,8 @@ export const experience = {
 //  stories (Business Problem -> Ownership -> Solution -> Impact). No STAR labels.
 //  To add a real screenshot, set `image: '<filename>.png'` (place file in
 //  public/) — the component shows it instead of the schematic preview.
+//  `host` overrides the address shown in the preview window's title bar
+//  (defaults to `<id>.vivant360.app` for the Vivant360 systems).
 // ============================================================================
 export const caseStudies = [
   {
@@ -347,12 +363,55 @@ export const caseStudies = [
     ],
   },
   {
+    id: 'abdullax',
+    name: 'AbdullaX — Recruiter-Facing RAG Assistant',
+    domain: 'Generative AI · Personal Project',
+    iconKey: 'sparkle',
+    gradient: 'from-cyan-300 to-emerald-400',
+    image: null,
+    host: 'abdullax.onrender.com',
+    repo: 'https://github.com/ababeel-ceo/AbdullaX',
+    overview:
+      'The AI assistant answering recruiter questions on this site. A retrieval-augmented generation (RAG) service I designed and shipped in Python — a stack outside my day-to-day Java work — to learn modern GenAI engineering by building a production system rather than following a tutorial.',
+    challenge:
+      'A CV answers only the questions it was written for. I wanted a recruiter to be able to ask anything about my background and get an accurate, grounded answer — which rules out an assistant that invents credentials. Building it also meant moving from Java and Spring Boot into Python, FastAPI, and the GenAI ecosystem under my own direction.',
+    contribution: [
+      'Moved from Java and Spring Boot into Python and the GenAI ecosystem by shipping a real service end to end — architecture, implementation, tests, and deployment — rather than following a guided tutorial.',
+      'Modelled the assistant as a five-step LangGraph pipeline — history compaction, query reformulation with out-of-scope guardrails, an FAQ fast path, category-filtered retrieval, and grounded generation — keeping each step small, testable, and swappable.',
+      'Made "no hallucination" a design constraint rather than a prompt: the generator answers only from retrieved context and states plainly when it has none.',
+      'Hid the model provider behind a small LLM protocol, so switching between Groq and Claude is a one-line environment change.',
+      'Wrote a fully offline, deterministic pytest suite — a hashing embedder and a scripted LLM stand in for the real model and provider, so the tests need no API key and no model download.',
+      'Deployed under a hard 512 MB memory ceiling, serving MiniLM embeddings through onnxruntime because the torch-based path is OOM-killed during startup at that instance size.',
+    ],
+    architecture: [
+      'FastAPI service exposing /chat, /ingest-documents, and /health, with the pipeline orchestrated as a LangGraph graph of plain (state, deps) → dict steps.',
+      'ChromaDB vector store over all-MiniLM-L6-v2 (384-dim) embeddings served via onnxruntime, with metadata filtering that scopes retrieval by document category.',
+      'Pluggable LLM layer — Groq (llama-3.3-70b-versatile) by default, Claude behind the same protocol — with an extractive fallback answer when no provider is reachable.',
+      'Layered graceful degradation: a downed vector store, an unavailable model, or an unhandled error each return a transparent answer instead of failing the request.',
+    ],
+    tech: [
+      'Python', 'FastAPI', 'LangGraph', 'RAG', 'ChromaDB', 'MiniLM (ONNX)',
+      'Groq', 'Claude', 'pytest', 'Render',
+    ],
+    outcome:
+      'The assistant is live on this site — the chat widget in the corner is this service — answering recruiter questions with grounded, source-backed responses inside a free-tier memory budget. More usefully, it carried me from Java and Spring Boot to a working production GenAI system: retrieval, orchestration, provider abstraction, and the deployment constraints that come with them.',
+    learnings:
+      'Constraints teach faster than tutorials. A 512 MB ceiling forced a real decision about how embeddings are served, and designing for "never invent an answer" turned out to be an architecture problem — guardrails, grounding, and fallbacks — long before it was a prompting one.',
+    metrics: [
+      { value: 'Java → Python', label: 'Self-Directed Stack Shift' },
+      { value: '5-Step', label: 'LangGraph RAG Pipeline' },
+      { value: '512 MB', label: 'Production Memory Ceiling' },
+      { value: 'Live', label: 'Powers This Site’s Assistant' },
+    ],
+  },
+  {
     id: 'scroll-blocker',
     name: 'Scroll Blocker — Focus & Digital Wellbeing',
     domain: 'Native Android · Personal Project',
     iconKey: 'target',
     gradient: 'from-violet-400 to-brand-500',
     image: null,
+    host: 'github.com/ababeel-ceo/scroll-blocker',
     repo: 'https://github.com/ababeel-ceo/scroll-blocker',
     overview:
       'A self-initiated native Android app that curbs compulsive infinite scrolling system-wide by intercepting scroll gestures through the Android Accessibility Service. With Kotlin outside my core stack, I paired strong engineering fundamentals with AI-assisted development to learn the ecosystem and ship a working MVP fast.',

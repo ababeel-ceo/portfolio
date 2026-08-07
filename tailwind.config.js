@@ -22,6 +22,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        // Display face for headings, Inter for body, mono for labels/eyebrows.
+        display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
@@ -40,27 +42,40 @@ export default {
           800: '#8f1620',
           900: '#76161e',
         },
+        // Cool, deep neutral scale tuned for a near-black premium dark UI.
         surface: {
-          50: '#f2f7f9',
-          100: '#dfeaed',
-          200: '#bdd0d6',
-          300: '#90aab3',
-          400: '#688592',
-          500: '#4a626c',
-          600: '#35474f',
-          700: '#243239',
-          800: '#17242a',
-          900: '#0e1a1f',
-          950: '#081317',
+          50: '#f3f8fa',
+          100: '#e2edf1',
+          200: '#c3d6dd',
+          300: '#93b0bb',
+          400: '#5f8091',
+          500: '#41616f',
+          600: '#2e4854',
+          700: '#1f323b',
+          800: '#13222a',
+          900: '#0a151b',
+          950: '#050c10',
         },
+      },
+      borderRadius: {
+        '4xl': '1.75rem',
+        '5xl': '2.25rem',
+      },
+      boxShadow: {
+        card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 20px 50px -30px rgba(0,0,0,0.9)',
+        lift: '0 28px 70px -34px rgba(35,138,175,0.55), 0 1px 0 0 rgba(255,255,255,0.06) inset',
+        glow: '0 0 0 1px rgba(35,138,175,0.28), 0 18px 50px -20px rgba(35,138,175,0.5)',
+        float: '0 24px 60px -20px rgba(0,0,0,0.75)',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-        'fade-in-down': 'fadeInDown 0.6s ease-out forwards',
-        'scale-in': 'scaleIn 0.5s ease-out forwards',
-        'float': 'float 9s ease-in-out infinite',
-        'marquee': 'marquee 38s linear infinite',
+        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'scale-in': 'scaleIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        float: 'float 12s ease-in-out infinite',
+        shimmer: 'shimmer 2.8s ease-in-out infinite',
+        bob: 'bob 3.6s ease-in-out infinite',
+        'pulse-ring': 'pulseRing 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        caret: 'caret 1.1s step-end infinite',
       },
       keyframes: {
         fadeIn: {
@@ -68,28 +83,33 @@ export default {
           '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(28px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        fadeInDown: {
-          '0%': { opacity: '0', transform: 'translateY(-16px)' },
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.96)' },
-          '100%': { opacity: '1', transform: 'scale(1)' },
+          '0%': { opacity: '0', transform: 'scale(0.94) translateY(10px)' },
+          '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
         },
         float: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+          '50%': { transform: 'translate3d(0, -28px, 0)' },
+        },
+        shimmer: {
+          '0%, 100%': { opacity: '0.35' },
+          '50%': { opacity: '0.9' },
+        },
+        bob: {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-24px)' },
+          '50%': { transform: 'translateY(-5px)' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
+        pulseRing: {
+          '0%': { transform: 'scale(0.85)', opacity: '0.5' },
+          '70%, 100%': { transform: 'scale(1.6)', opacity: '0' },
         },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        caret: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
     },
   },

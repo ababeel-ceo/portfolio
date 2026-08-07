@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useChat } from '../hooks/useChat';
 import { Icons } from './Icons';
 
@@ -12,14 +12,64 @@ const STARTERS = [
   'Why should I hire him?',
 ];
 
+// First-visit nudge: shows once per browsing session, never auto-opens the chat.
+const NUDGE_KEY = 'abdullax:nudge-seen';
+const NUDGE_DELAY_MS = 4000;
+const NUDGE_LIFETIME_MS = 15000;
+
+/**
+ * Drives the unobtrusive welcome badge: appears a few seconds after landing,
+ * retires after a short lifetime or on any interaction, and stays retired for
+ * the rest of the session.
+ */
+function useWelcomeNudge(isChatOpen) {
+  const [visible, setVisible] = useState(false);
+  const [seen, setSeen] = useState(() => {
+    try {
+      return sessionStorage.getItem(NUDGE_KEY) === '1';
+    } catch {
+      return true; // storage blocked — stay quiet rather than nag on every view
+    }
+  });
+
+  const dismiss = useCallback(() => {
+    setVisible(false);
+    setSeen(true);
+    try {
+      sessionStorage.setItem(NUDGE_KEY, '1');
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  // Opening the chat counts as the interaction that retires the nudge.
+  useEffect(() => {
+    if (isChatOpen) dismiss();
+  }, [isChatOpen, dismiss]);
+
+  useEffect(() => {
+    if (seen || isChatOpen) return;
+    const show = setTimeout(() => setVisible(true), NUDGE_DELAY_MS);
+    return () => clearTimeout(show);
+  }, [seen, isChatOpen]);
+
+  useEffect(() => {
+    if (!visible) return;
+    const hide = setTimeout(dismiss, NUDGE_LIFETIME_MS);
+    return () => clearTimeout(hide);
+  }, [visible, dismiss]);
+
+  return { visible, seen, dismiss };
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const { messages, isLoading, error, followUps, send, reset } = useChat({ greeting: GREETING });
   const [draft, setDraft] = useState('');
+  const nudge = useWelcomeNudge(open);
 
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
-  const panelRef = useRef(null);
 
   // Auto-scroll to the newest message / typing indicator.
   useEffect(() => {
@@ -62,75 +112,133 @@ export default function ChatWidget() {
   };
 
   const showStarters = messages.length <= 1 && !isLoading;
+  const attention = !open && !nudge.seen;
 
   return (
     <>
+      {/* Welcome nudge — a hint, never an interruption */}
+      {nudge.visible && !open && (
+        <div
+          role="status"
+          className="fixed bottom-[6.25rem] right-5 z-[60] w-[19.5rem] max-w-[calc(100vw-2.5rem)]
+            origin-bottom-right animate-scale-in rounded-3xl border border-white/[0.09]
+            bg-surface-900/95 p-4 shadow-float backdrop-blur-xl sm:bottom-[6.75rem]"
+        >
+          <div className="flex items-start gap-3">
+            <span className="kicker !text-primary-300">
+              <Icons.sparkle className="h-3.5 w-3.5" />
+              Ask AbdullaX
+            </span>
+            <button
+              onClick={nudge.dismiss}
+              aria-label="Dismiss chat suggestion"
+              className="-mr-1 -mt-1 ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-surface-500 transition-colors hover:bg-white/[0.06] hover:text-white"
+            >
+              <Icons.close className="h-3.5 w-3.5" />
+            </button>
+          </div>
+
+          <p className="mt-2.5 text-[13px] leading-relaxed text-surface-200">
+            <span aria-hidden="true">👋</span> Hi! Ask me anything about Abdulla’s projects,
+            experience, or skills.
+          </p>
+
+          <button
+            onClick={() => setOpen(true)}
+            className="btn-primary mt-4 w-full !py-2.5 !text-[13px]"
+          >
+            <Icons.chat className="h-4 w-4" />
+            Start a chat
+          </button>
+
+          {/* Tail pointing at the launcher */}
+          <span
+            aria-hidden="true"
+            className="absolute -bottom-1.5 right-9 h-3 w-3 rotate-45 border-b border-r border-white/[0.09] bg-surface-900/95"
+          />
+        </div>
+      )}
+
       {/* Launcher */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat' : 'Chat with AbdullaX'}
         aria-expanded={open}
-        className={`fixed bottom-5 right-5 z-[60] group flex items-center justify-center
-          w-14 h-14 rounded-full text-white
-          bg-gradient-to-br from-primary-500 to-primary-700
-          shadow-lg shadow-primary-900/50 hover:shadow-xl hover:shadow-primary-500/30
-          transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0
-          ${open ? 'rotate-0' : ''}`}
+        className={`group fixed bottom-5 right-5 z-[60] flex items-center gap-3 rounded-full
+          border border-white/[0.09] bg-surface-900/[0.85] py-2 pl-2 text-left shadow-float
+          backdrop-blur-xl transition-all duration-300 ease-out
+          hover:-translate-y-0.5 hover:border-primary-400/40 active:translate-y-0
+          ${open ? 'pr-2' : 'pr-2 sm:pr-5'} ${attention ? 'animate-bob' : ''}`}
       >
-        {!open && (
-          <span className="absolute inline-flex h-full w-full rounded-full bg-primary-500/60 animate-ping opacity-40" />
-        )}
-        <span className="relative">
-          {open ? <Icons.close className="w-6 h-6" /> : <Icons.chat className="w-6 h-6" />}
+        <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-300 to-primary-600 text-surface-950 shadow-[0_10px_24px_-10px_rgba(56,188,220,0.9)]">
+          {attention && (
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 animate-pulse-ring rounded-full bg-primary-400/50"
+            />
+          )}
+          <span className="relative">
+            {open ? <Icons.close className="h-5 w-5" /> : <Icons.chat className="h-5 w-5" />}
+          </span>
         </span>
+
+        {!open && (
+          <span className="hidden flex-col leading-tight sm:flex">
+            <span className="font-mono text-[9px] font-medium uppercase tracking-[0.2em] text-primary-300/90">
+              Ask AbdullaX
+            </span>
+            <span className="text-[13px] font-semibold text-white">Recruiter chat</span>
+          </span>
+        )}
+
+        {attention && (
+          <span
+            aria-hidden="true"
+            className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-surface-900 bg-emerald-400"
+          />
+        )}
       </button>
 
       {/* Panel */}
       {open && (
         <div
-          ref={panelRef}
           role="dialog"
           aria-label="Chat with AbdullaX"
-          className="fixed z-[60] bottom-24 right-5 left-5 sm:left-auto
-            w-auto sm:w-[400px] max-w-[calc(100vw-2.5rem)]
-            h-[68vh] max-h-[640px] flex flex-col
-            rounded-2xl border border-surface-700/60 bg-surface-900/95 backdrop-blur-xl
-            shadow-2xl shadow-black/50 overflow-hidden animate-scale-in origin-bottom-right"
+          className="fixed bottom-[6.25rem] left-5 right-5 z-[60] flex h-[68vh] max-h-[640px]
+            w-auto max-w-[calc(100vw-2.5rem)] flex-col overflow-hidden rounded-3xl
+            border border-white/[0.09] bg-surface-900/95 shadow-float backdrop-blur-xl
+            animate-scale-in origin-bottom-right sm:left-auto sm:w-[400px]"
         >
           {/* Header */}
-          <header className="flex items-center gap-3 px-4 py-3 border-b border-surface-800/80 bg-surface-900/80">
-            <span className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary-900/40 shrink-0">
+          <header className="flex items-center gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-300 to-primary-600 text-sm font-bold text-surface-950">
               AX
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-surface-900" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-surface-900 bg-emerald-400" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-white font-semibold text-sm leading-tight">AbdullaX</p>
-              <p className="text-primary-300/90 text-[11px] font-medium leading-tight">
+              <p className="font-display text-sm font-semibold leading-tight text-white">AbdullaX</p>
+              <p className="text-[11px] font-medium leading-tight text-primary-300/90">
                 Abdulla’s AI · usually instant
               </p>
             </div>
             <button
               onClick={reset}
               aria-label="Clear conversation"
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-surface-400 hover:text-white hover:bg-surface-800/70 transition-colors"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-surface-400 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
-              <Icons.refresh className="w-4 h-4" />
+              <Icons.refresh className="h-4 w-4" />
             </button>
             <button
               onClick={() => setOpen(false)}
               aria-label="Close chat"
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-surface-400 hover:text-white hover:bg-surface-800/70 transition-colors"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-surface-400 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
-              <Icons.close className="w-4 h-4" />
+              <Icons.close className="h-4 w-4" />
             </button>
           </header>
 
           {/* Messages */}
-          <div
-            ref={scrollRef}
-            className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
-            aria-live="polite"
-          >
+          <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4" aria-live="polite">
             {messages.map((m) => (
               <Message key={m.id} message={m} />
             ))}
@@ -139,24 +247,21 @@ export default function ChatWidget() {
 
             {error && (
               <div className="flex justify-start">
-                <div className="max-w-[85%] rounded-2xl rounded-bl-sm px-3.5 py-2.5 text-sm bg-accent-500/10 border border-accent-500/30 text-accent-200">
+                <div className="max-w-[85%] rounded-2xl rounded-bl-md border border-accent-500/30 bg-accent-500/10 px-3.5 py-2.5 text-sm text-accent-200">
                   {error}
                 </div>
               </div>
             )}
 
-            {/* Starter prompts (fresh conversation) */}
             {showStarters && (
-              <div className="pt-1 space-y-2">
-                <p className="text-surface-500 text-[11px] uppercase tracking-wider font-medium px-1">
-                  Try asking
-                </p>
+              <div className="space-y-2.5 pt-1">
+                <p className="kicker px-1">Try asking</p>
                 <div className="flex flex-wrap gap-2">
                   {STARTERS.map((s) => (
                     <button
                       key={s}
                       onClick={() => submit(s)}
-                      className="text-left text-xs px-3 py-2 rounded-xl bg-surface-800/70 border border-surface-700/50 text-surface-200 hover:border-primary-500/40 hover:text-primary-300 hover:bg-primary-500/5 transition-all duration-200"
+                      className="rounded-full border border-white/[0.07] bg-white/[0.03] px-3 py-2 text-left text-xs text-surface-200 transition-all duration-300 hover:border-primary-400/40 hover:bg-primary-500/10 hover:text-primary-200"
                     >
                       {s}
                     </button>
@@ -165,16 +270,15 @@ export default function ChatWidget() {
               </div>
             )}
 
-            {/* Dynamic follow-ups from the backend */}
             {!isLoading && followUps.length > 0 && (
               <div className="flex flex-wrap gap-2 pt-1">
                 {followUps.slice(0, 4).map((f) => (
                   <button
                     key={f}
                     onClick={() => submit(f)}
-                    className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/30 text-primary-200 hover:bg-primary-500/20 transition-colors duration-200"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-primary-400/30 bg-primary-500/10 px-3 py-1.5 text-xs text-primary-200 transition-colors duration-300 hover:bg-primary-500/20"
                   >
-                    <Icons.sparkle className="w-3 h-3" />
+                    <Icons.sparkle className="h-3 w-3" />
                     {f}
                   </button>
                 ))}
@@ -183,8 +287,8 @@ export default function ChatWidget() {
           </div>
 
           {/* Composer */}
-          <div className="border-t border-surface-800/80 p-3 bg-surface-900/80">
-            <div className="flex items-end gap-2 rounded-xl border border-surface-700/60 bg-surface-950/60 px-3 py-2 focus-within:border-primary-500/50 transition-colors">
+          <div className="border-t border-white/[0.06] bg-white/[0.02] p-3">
+            <div className="flex items-end gap-2 rounded-2xl border border-white/[0.08] bg-surface-950/60 px-3 py-2 transition-colors focus-within:border-primary-400/50">
               <textarea
                 ref={inputRef}
                 rows={1}
@@ -193,18 +297,18 @@ export default function ChatWidget() {
                 onKeyDown={onKeyDown}
                 placeholder="Ask about Abdulla…"
                 maxLength={1000}
-                className="flex-1 resize-none bg-transparent text-sm text-surface-100 placeholder:text-surface-500 outline-none leading-relaxed max-h-[120px]"
+                className="max-h-[120px] flex-1 resize-none bg-transparent text-sm leading-relaxed text-surface-100 outline-none placeholder:text-surface-500"
               />
               <button
                 onClick={() => submit()}
                 disabled={!draft.trim() || isLoading}
                 aria-label="Send message"
-                className="shrink-0 w-9 h-9 flex items-center justify-center rounded-lg bg-primary-500 text-white shadow-lg shadow-primary-900/40 hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary-500 transition-colors"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-b from-primary-200 to-primary-400 text-surface-950 transition-all duration-300 hover:from-primary-100 hover:to-primary-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:from-primary-200 disabled:hover:to-primary-400"
               >
-                <Icons.send className="w-4 h-4" />
+                <Icons.send className="h-4 w-4" />
               </button>
             </div>
-            <p className="text-surface-600 text-[10px] mt-1.5 text-center">
+            <p className="mt-2 text-center text-[10px] text-surface-600">
               AbdullaX may be imprecise — verify anything important.
             </p>
           </div>
@@ -219,22 +323,22 @@ function Message({ message }) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`max-w-[85%] px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap break-words ${
+        className={`max-w-[85%] whitespace-pre-wrap break-words px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
-            ? 'rounded-2xl rounded-br-sm bg-primary-500 text-white'
-            : 'rounded-2xl rounded-bl-sm bg-surface-800/80 border border-surface-700/50 text-surface-100'
+            ? 'rounded-2xl rounded-br-md bg-gradient-to-b from-primary-300 to-primary-500 font-medium text-surface-950'
+            : 'rounded-2xl rounded-bl-md border border-white/[0.07] bg-white/[0.04] text-surface-100'
         }`}
       >
         {message.content}
         {!isUser && message.sources?.length > 0 && (
-          <div className="mt-2.5 pt-2 border-t border-surface-700/50 flex flex-wrap gap-1.5">
+          <div className="mt-2.5 flex flex-wrap gap-1.5 border-t border-white/[0.07] pt-2">
             {message.sources.slice(0, 3).map((s) => (
               <span
                 key={s.id}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-surface-900/60 text-surface-400 text-[10px] font-medium border border-surface-700/40"
+                className="inline-flex items-center gap-1 rounded-full border border-white/[0.06] bg-surface-950/60 px-2 py-0.5 text-[10px] font-medium text-surface-400"
                 title={s.category}
               >
-                <Icons.document className="w-2.5 h-2.5" />
+                <Icons.document className="h-2.5 w-2.5" />
                 {s.title}
               </span>
             ))}
@@ -248,11 +352,11 @@ function Message({ message }) {
 function TypingIndicator() {
   return (
     <div className="flex justify-start">
-      <div className="rounded-2xl rounded-bl-sm bg-surface-800/80 border border-surface-700/50 px-4 py-3 flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-white/[0.07] bg-white/[0.04] px-4 py-3">
         {[0, 150, 300].map((delay) => (
           <span
             key={delay}
-            className="w-1.5 h-1.5 rounded-full bg-primary-300/80 animate-bounce"
+            className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary-300/80"
             style={{ animationDelay: `${delay}ms` }}
           />
         ))}
