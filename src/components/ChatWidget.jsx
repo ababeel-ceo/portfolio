@@ -7,7 +7,7 @@ const GREETING =
 
 const STARTERS = [
   'What is Abdulla’s experience?',
-  'Walk me through the OCR project',
+  'Walk me through the B2B insurance portal',
   'What’s his tech stack?',
   'Why should I hire him?',
 ];

@@ -48,14 +48,14 @@ export const hero = {
     'AI-Augmented Engineer',
   ],
   availability: 'Open to Full Stack, Backend & AI engineering roles',
-  domains: ['IAM', 'Insurance', 'OCR Automation', 'Workflows', 'CRM'],
+  domains: ['IAM', 'Insurance', 'Workflows', 'CRM'],
   exploring: ['Agentic AI', 'Generative AI', 'AI Tooling', 'Intelligent Automation'],
   recognition: [
     { name: 'Outstanding Excellence Award', year: '2023' },
     { name: 'Client Recognition Award', year: '2024' },
   ],
   subheadline:
-    'Full-stack Software Engineer with 3+ years delivering enterprise applications across Identity Management, Insurance Operations, OCR Automation, Workflow Systems, and Customer Service Platforms — and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
+    'Full-stack Software Engineer with 3+ years delivering enterprise applications across Identity Management, Insurance Operations, Workflow Systems, and Customer Service Platforms — and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
   badges: [
     '3+ Years Experience',
     'Led a 6-Member Team',
@@ -126,7 +126,7 @@ export const impactMetrics = [
   { value: '6+', label: 'Enterprise Applications Delivered' },
   { value: '6', label: 'Team Members Led' },
   { value: '2', label: 'Corporate Awards' },
-  { value: 'Insurance · IAM · OCR · CRM', label: 'Business Domains', wide: true },
+  { value: 'Insurance · IAM · Workflows · CRM', label: 'Business Domains', wide: true },
 ];
 
 export const experience = {
@@ -138,7 +138,7 @@ export const experience = {
     'Owning enterprise application delivery across identity, insurance, automation, and customer-service domains — from architecture and secure Spring Boot services to React interfaces and production support.',
   highlights: [
     'Led a 6-member team across the delivery lifecycle — coordinating design, implementation, and production support to ship enterprise systems on time.',
-    'Delivered 6+ enterprise applications spanning Identity & Access Management, B2B insurance operations, OCR document automation, warranty and complaint workflows, and a self-service template platform.',
+    'Delivered 6+ enterprise applications spanning Identity & Access Management, B2B insurance operations, warranty and complaint workflows, and a self-service template platform.',
     'Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design — with Redis and Redis Streams for caching and asynchronous processing.',
     'Standardized security across systems with JWT authentication and role-based access control (RBAC), reducing duplicated access logic and strengthening governance.',
     'Automated manual, fragmented business processes into auditable workflows — improving operational efficiency, turnaround, and visibility.',
@@ -202,8 +202,9 @@ export const caseStudies = [
     iconKey: 'chart',
     gradient: 'from-emerald-400 to-brand-500',
     image: null,
+    award: 'Outstanding Excellence Award · 2023',
     overview:
-      'An enterprise B2B insurance portal that automates the policy and quote lifecycle and streamlines high-volume insurance operations for business partners.',
+      'An enterprise B2B insurance portal that automates the policy and quote lifecycle and streamlines high-volume insurance operations for business partners — recognized with the Outstanding Excellence Award 2023.',
     challenge:
       'Insurance operations relied on slow, manual quote and policy workflows that were hard to scale as partner and transaction volume grew.',
     contribution: [
@@ -218,14 +219,14 @@ export const caseStudies = [
     ],
     tech: ['Java', 'Spring Boot', 'Hibernate', 'REST APIs', 'React.js', 'Redis', 'Redis Streams', 'MySQL / MariaDB', 'Microservices'],
     outcome:
-      'Automated core insurance operations, improved processing throughput and reliability under load, and significantly reduced manual effort across the quote and policy lifecycle.',
+      'Automated core insurance operations, improved processing throughput and reliability under load, and significantly reduced manual effort across the quote and policy lifecycle — earning the Outstanding Excellence Award 2023 for its contribution to operational excellence.',
     learnings:
       'Asynchronous processing and caching are force-multipliers for transaction-heavy workflows; modeling the domain cleanly keeps the platform extensible as new products are added.',
     metrics: [
       { value: 'Quote → Policy', label: 'Automated Lifecycle' },
+      { value: 'Award', label: 'Outstanding Excellence ’23' },
       { value: 'Async', label: 'Processing Model' },
       { value: 'High-Volume', label: 'Operations' },
-      { value: 'Full Stack', label: 'Ownership' },
     ],
   },
   {
@@ -259,40 +260,6 @@ export const caseStudies = [
       { value: 'Automated', label: 'Routing' },
       { value: 'Auditable', label: 'State History' },
       { value: 'Improved', label: 'Efficiency' },
-    ],
-  },
-  {
-    id: 'ocr',
-    name: 'OCR Document Verification Tool',
-    domain: 'Intelligent Automation',
-    iconKey: 'scan',
-    gradient: 'from-amber-400 to-accent-500',
-    image: null,
-    award: 'Outstanding Excellence Award · 2023',
-    overview:
-      'An OCR-powered verification platform that automates document extraction, validation, and review workflows — recognized with the Outstanding Excellence Award 2023.',
-    challenge:
-      'Manual document verification was slow, effort-intensive, and error-prone, creating a bottleneck in downstream operations.',
-    contribution: [
-      'Designed and implemented an OCR-driven pipeline that automated document extraction, validation, and review.',
-      'Built validation rules and a review workflow that auto-cleared clean documents and flagged exceptions for human attention.',
-      'Integrated the tool into existing operational workflows as a seamless verification step.',
-    ],
-    architecture: [
-      'Spring Boot services orchestrating OCR extraction, rule-based validation, and review routing.',
-      'Asynchronous batch processing to keep document throughput high.',
-      'React.js review console for exception handling and audit.',
-    ],
-    tech: ['Java', 'Spring Boot', 'OCR', 'REST APIs', 'React.js', 'Redis', 'MySQL / MariaDB'],
-    outcome:
-      'Significantly improved processing efficiency and reduced manual verification effort — earning the Outstanding Excellence Award 2023 for its contribution to operational excellence.',
-    learnings:
-      'Targeting the single highest-friction manual step with automation delivers outsized, visible business value.',
-    metrics: [
-      { value: 'OCR', label: 'Automated Extraction' },
-      { value: 'Award', label: 'Outstanding Excellence ’23' },
-      { value: 'Reduced', label: 'Manual Effort' },
-      { value: 'Faster', label: 'Verification' },
     ],
   },
   {
@@ -449,8 +416,8 @@ export const awards = [
     year: '2023',
     org: 'Vivant360 Software Services',
     summary:
-      'Recognized for developing an OCR-based verification platform that automated document processing and improved operational efficiency.',
-    caseStudyId: 'ocr',
+      'Recognized for delivering the B2B insurance portal that automated the quote and policy lifecycle and improved operational efficiency at scale.',
+    caseStudyId: 'insurance',
     iconKey: 'trophy',
     gradient: 'from-amber-400 to-accent-500',
   },

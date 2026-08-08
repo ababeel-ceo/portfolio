@@ -2,7 +2,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { impactMetrics } from '../data/profile';
 import { Icons } from './Icons';
 
-const domains = ['Insurance', 'IAM', 'OCR Automation', 'CRM'];
+const domains = ['Insurance', 'IAM', 'Workflow Automation', 'CRM'];
 
 export default function Impact() {
   const [ref, isVisible] = useScrollReveal();
