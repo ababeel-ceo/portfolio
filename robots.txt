@@ -1,0 +1,6 @@
+# Everything on https://abdullathepro.online is public - search and AI crawlers welcome.
+User-agent: *
+Allow: /
+Disallow: /README.md
+
+Sitemap: https://abdullathepro.online/sitemap.xml

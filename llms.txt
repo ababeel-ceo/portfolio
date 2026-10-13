@@ -1,0 +1,133 @@
+# Abdulla B
+
+> Software Engineer at Vivant360 Software Services (Tamil Nadu, India) with 4+ years of experience. Building enterprise software that automates business operations and improves customer experience.
+
+I am a Software Engineer who measures success by business outcomes, not lines of code. Over 4 years at Vivant360 Software Services I have owned enterprise applications end to end - from React interfaces to Spring Boot services and the data layer beneath them, while leading a 6-member team.
+
+## Links
+
+- [Portfolio](https://abdullathepro.online/)
+- [Résumé (PDF)](https://abdullathepro.online/Abdulla.pdf)
+- [LinkedIn](https://in.linkedin.com/in/abdullathepro)
+- [GitHub](https://github.com/ababeel-ceo)
+- [LeetCode](https://leetcode.com/u/abdullahsmsapk/)
+- Email: abdullahsmsapk@gmail.com
+
+## Experience
+
+**Software Engineer, Vivant360 Software Services** - 4+ Years · Full-time, Tamil Nadu, India
+
+Owning enterprise application delivery across identity, insurance, automation, and customer-service domains - from architecture and secure Spring Boot services to React interfaces and production support.
+
+- Led a 6-member team across the delivery lifecycle - coordinating design, implementation, and production support to ship enterprise systems on time.
+- Delivered 6+ enterprise applications spanning Identity & Access Management, B2B insurance operations, warranty and complaint workflows, and a self-service template platform.
+- Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design - with Redis and Redis Streams for caching and asynchronous processing.
+- Standardized security across systems with JWT authentication and role-based access control (RBAC), reducing duplicated access logic and strengthening governance.
+- Automated manual, fragmented business processes into auditable workflows - improving operational efficiency, turnaround, and visibility.
+- Actively expanding into AI engineering - exploring Agentic AI, generative models, and AI-assisted development to bring intelligent automation into the next generation of systems I build.
+- Recognized with the Outstanding Excellence Award (2023) and a Client Recognition Award (2024) for measurable business impact.
+
+## Impact
+
+- **Financial Transactions Processed:** 5.7M+
+- **Reduction in Manual Processing:** 80%
+- **Faster Complaint Resolution:** 40%
+- **Transaction Engine Scaled (2.5M → 5.7M):** 2.3×
+- **Enterprise Applications Delivered:** 6+
+- **Team Members Led:** 6
+- **Corporate Awards:** 2
+- **Business Domains:** Insurance · IAM · Workflows · CRM
+
+## Case studies
+
+### Identity & Access Management Platform
+
+Security & Access Governance
+
+A centralized IAM platform that standardizes authentication, authorization, and role-based access control across multiple enterprise applications.
+
+Outcome: Strengthened security posture and standardized permission management across systems while reducing operational complexity for administrators and eliminating duplicated access logic.
+
+Tech: Java, Spring Boot, Spring Security, JWT, RBAC, Hibernate, REST APIs, MySQL / MariaDB, React.js
+
+### B2B Insurance Portal
+
+Insurance Operations · Outstanding Excellence Award · 2023
+
+An enterprise B2B insurance portal that automates the policy and quote lifecycle and streamlines high-volume insurance operations for business partners - recognized with the Outstanding Excellence Award 2023.
+
+Outcome: Automated core insurance operations, improved processing throughput and reliability under load, and significantly reduced manual effort across the quote and policy lifecycle - earning the Outstanding Excellence Award 2023 for its contribution to operational excellence.
+
+Tech: Java, Spring Boot, Hibernate, REST APIs, React.js, Redis, Redis Streams, MySQL / MariaDB, Microservices
+
+### Warranty Claim Management System
+
+Workflow Automation
+
+A workflow-driven platform that digitizes and optimizes the end-to-end warranty claim process, from submission through review and resolution.
+
+Outcome: Streamlined the warranty claim lifecycle, improved operational efficiency and process visibility, and reduced delays caused by manual handoffs.
+
+Tech: Java, Spring Boot, Hibernate, REST APIs, React.js, MySQL / MariaDB, RBAC
+
+### Complaints Management System
+
+Customer Experience · Client Recognition Award · 2024
+
+A customer-service platform that centralizes complaint intake, tracking, and escalation to improve issue visibility and service responsiveness - recognized with the Client Recognition Award 2024.
+
+Outcome: Improved issue visibility, tracking, and service responsiveness - earning the Client Recognition Award 2024 for measurable service improvement.
+
+Tech: Java, Spring Boot, Hibernate, REST APIs, React.js, MySQL / MariaDB, RBAC
+
+### Template Builder Platform
+
+Business Enablement
+
+A self-service platform that lets business users dynamically build and manage reusable content templates without engineering involvement.
+
+Outcome: Enabled the business to self-serve content generation, removing an engineering bottleneck and accelerating turnaround for content and document changes.
+
+Tech: Java, Spring Boot, REST APIs, React.js, JavaScript, MySQL / MariaDB
+
+### AbdullaX - Recruiter-Facing RAG Assistant
+
+Generative AI · Personal Project
+
+The AI assistant answering recruiter questions on this site. A retrieval-augmented generation (RAG) service I designed and shipped in Python - a stack outside my day-to-day Java work - to learn modern GenAI engineering by building a production system rather than following a tutorial.
+
+Outcome: The assistant is live on this site - the chat widget in the corner is this service - answering recruiter questions with grounded, source-backed responses inside a free-tier memory budget. More usefully, it carried me from Java and Spring Boot to a working production GenAI system: retrieval, orchestration, provider abstraction, and the deployment constraints that come with them.
+
+Tech: Python, FastAPI, LangGraph, RAG, ChromaDB, MiniLM (ONNX), Groq, Claude, pytest, Render
+
+Source: https://github.com/ababeel-ceo/AbdullaX
+
+### Scroll Blocker - Focus & Digital Wellbeing
+
+Native Android · Personal Project
+
+A self-initiated native Android app that curbs compulsive infinite scrolling system-wide by intercepting scroll gestures through the Android Accessibility Service. With Kotlin outside my core stack, I paired strong engineering fundamentals with AI-assisted development to learn the ecosystem and ship a working MVP fast.
+
+Outcome: Delivered a working MVP in an unfamiliar ecosystem by combining software-engineering fundamentals with AI-assisted development workflows - demonstrating the ability to rapidly learn new technologies, adapt to unfamiliar environments, and translate ideas into practical software efficiently.
+
+Tech: Kotlin, Jetpack Compose, MVVM, Accessibility Service, DataStore, AI-Assisted Dev, Gradle (KTS)
+
+Source: https://github.com/ababeel-ceo/scroll-blocker
+
+## Skills
+
+- **Backend Engineering:** Java, Spring Boot, Hibernate, REST APIs, Microservices
+- **Frontend Engineering:** React.js, JavaScript, HTML, CSS, Bootstrap
+- **Data & Messaging:** MariaDB, MySQL, Redis, Redis Streams
+- **Security & Architecture:** JWT, Authentication, Authorization, RBAC, Microservices
+- **Engineering Practices:** OOP, Design Patterns, LLD & HLD, Git & GitHub, Agile Delivery
+- **Currently exploring:** Agentic AI, Generative AI, AI Tooling, Intelligent Automation
+
+## Awards
+
+- **Outstanding Excellence Award** (2023) - Recognized for delivering the B2B insurance portal that automated the quote and policy lifecycle and improved operational efficiency at scale.
+- **Client Recognition Award** (2024) - Recognized for delivering a complaint management solution that improved issue visibility, tracking, and service responsiveness.
+
+## Education
+
+- Master of Computer Applications (MCA)
