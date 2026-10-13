@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-// Brand palette — Primary #13475A (deep teal), Secondary #238AAF (teal),
+// Brand palette - Primary #13475A (deep teal), Secondary #238AAF (teal),
 // Accent #E63946 (red). `primary` and `brand` share one teal scale so both
 // the shared component classes and data-driven gradients stay in sync.
 const teal = {
@@ -23,9 +23,10 @@ export default {
     extend: {
       fontFamily: {
         // Display face for headings, Inter for body, mono for labels/eyebrows.
-        display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        // Self-hosted via @fontsource-variable (imported in src/main.jsx).
+        display: ['Sora Variable', 'Inter Variable', 'system-ui', 'sans-serif'],
+        sans: ['Inter Variable', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono Variable', 'Fira Code', 'monospace'],
       },
       colors: {
         primary: teal,

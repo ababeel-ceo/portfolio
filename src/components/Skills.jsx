@@ -15,7 +15,7 @@ export default function Skills() {
               Organized by <span className="gradient-text">capability</span>, not buzzwords.
             </h2>
             <p className="section-subtitle">
-              The stack I use to deliver enterprise software end to end — grouped by the business
+              The stack I use to deliver enterprise software end to end - grouped by the business
               capability it enables.
             </p>
           </div>

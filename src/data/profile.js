@@ -1,5 +1,5 @@
 // ============================================================================
-//  SINGLE SOURCE OF TRUTH — edit your content here, the whole site updates.
+//  SINGLE SOURCE OF TRUTH - edit your content here, the whole site updates.
 // ============================================================================
 
 // Resume: the file lives at  public/Abdulla.pdf  and this resolves to
@@ -13,7 +13,7 @@ export const profile = {
   name: 'Abdulla B',
   title: 'Software Engineer',
   company: 'Vivant360 Software Services',
-  experience: '3+ Years',
+  experience: '4+ Years',
   location: 'Tamil Nadu, India',
   education: 'Master of Computer Applications (MCA)',
   email: 'abdullahsmsapk@gmail.com',
@@ -55,9 +55,9 @@ export const hero = {
     { name: 'Client Recognition Award', year: '2024' },
   ],
   subheadline:
-    'Full-stack Software Engineer with 3+ years delivering enterprise applications across Identity Management, Insurance Operations, Workflow Systems, and Customer Service Platforms — and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
+    'Full-stack Software Engineer with 4+ years delivering enterprise applications across Identity Management, Insurance Operations, Workflow Systems, and Customer Service Platforms - and an AI enthusiast exploring Agentic AI, generative models, and intelligent automation to push that work further.',
   badges: [
-    '3+ Years Experience',
+    '4+ Years Experience',
     'Led a 6-Member Team',
     '6+ Enterprise Applications Delivered',
     'Award-Winning Contributor',
@@ -66,7 +66,7 @@ export const hero = {
   ],
   stats: [
     { value: '6+', label: 'Enterprise Apps Delivered' },
-    { value: '3+', label: 'Years of Experience' },
+    { value: '4+', label: 'Years of Experience' },
     { value: '2', label: 'Corporate Awards' },
     { value: '4', label: 'Business Domains' },
   ],
@@ -74,12 +74,12 @@ export const hero = {
 
 export const about = {
   lead:
-    'I am a Software Engineer who measures success by business outcomes, not lines of code. Over 3+ years at Vivant360 Software Services I have owned enterprise applications end to end — from React interfaces to Spring Boot services and the data layer beneath them, while leading a 6-member team.',
+    'I am a Software Engineer who measures success by business outcomes, not lines of code. Over 4 years at Vivant360 Software Services I have owned enterprise applications end to end - from React interfaces to Spring Boot services and the data layer beneath them, while leading a 6-member team.',
   paragraphs: [
-    'My work sits where engineering meets operations: identity and access governance, insurance operations, document automation, warranty and complaint workflows, and self-service content platforms. In each, I started from a real business problem — manual effort, slow turnaround, fragmented visibility — and delivered software that automated it.',
+    'My work sits where engineering meets operations: identity and access governance, insurance operations, document automation, warranty and complaint workflows, and self-service content platforms. In each, I started from a real business problem - manual effort, slow turnaround, fragmented visibility - and delivered software that automated it.',
     'I take ownership across the full delivery lifecycle: understanding the domain, designing the architecture, building secure and scalable services, shipping the UI, and supporting it in production. That mindset earned me two corporate awards and the trust to lead delivery on systems that run real business operations.',
-    'That same curiosity now points squarely at AI. I am an AI enthusiast actively exploring Agentic AI systems and modern AI-powered workflows — experimenting with leading models, tools, and frameworks to understand where they genuinely lift developer productivity, automation, and problem-solving, and how to apply them responsibly inside real engineering work.',
-    'I care about clean architecture, maintainable code, and the realities of live systems — and I keep learning, so the next system I deliver is better than the last.',
+    'That same curiosity now points squarely at AI. I am an AI enthusiast actively exploring Agentic AI systems and modern AI-powered workflows - experimenting with leading models, tools, and frameworks to understand where they genuinely lift developer productivity, automation, and problem-solving, and how to apply them responsibly inside real engineering work.',
+    'I care about clean architecture, maintainable code, and the realities of live systems - and I keep learning, so the next system I deliver is better than the last.',
   ],
   facts: [
     { label: 'Role', value: 'Software Engineer' },
@@ -91,7 +91,7 @@ export const about = {
     {
       number: '01',
       title: 'End-to-end ownership',
-      desc: 'I deliver from requirements and architecture through implementation, UI, deployment, and production support — not just an isolated feature.',
+      desc: 'I deliver from requirements and architecture through implementation, UI, deployment, and production support - not just an isolated feature.',
     },
     {
       number: '02',
@@ -111,12 +111,12 @@ export const about = {
     {
       number: '05',
       title: 'AI-curious & always learning',
-      desc: 'I stay current with Generative and Agentic AI — experimenting with new models and frameworks and folding what genuinely works into how I build.',
+      desc: 'I stay current with Generative and Agentic AI - experimenting with new models and frameworks and folding what genuinely works into how I build.',
     },
   ],
 };
 
-// Executive dashboard — visible, recruiter-first proof at a glance.
+// Executive dashboard - visible, recruiter-first proof at a glance.
 // Numbers are sourced directly from the resume for verifiable, quantifiable impact.
 export const impactMetrics = [
   { value: '5.7M+', label: 'Financial Transactions Processed', emphasis: true },
@@ -133,16 +133,16 @@ export const experience = {
   role: 'Software Engineer',
   company: 'Vivant360 Software Services',
   location: 'Tamil Nadu, India',
-  period: '3+ Years · Full-time',
+  period: '4+ Years · Full-time',
   summary:
-    'Owning enterprise application delivery across identity, insurance, automation, and customer-service domains — from architecture and secure Spring Boot services to React interfaces and production support.',
+    'Owning enterprise application delivery across identity, insurance, automation, and customer-service domains - from architecture and secure Spring Boot services to React interfaces and production support.',
   highlights: [
-    'Led a 6-member team across the delivery lifecycle — coordinating design, implementation, and production support to ship enterprise systems on time.',
+    'Led a 6-member team across the delivery lifecycle - coordinating design, implementation, and production support to ship enterprise systems on time.',
     'Delivered 6+ enterprise applications spanning Identity & Access Management, B2B insurance operations, warranty and complaint workflows, and a self-service template platform.',
-    'Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design — with Redis and Redis Streams for caching and asynchronous processing.',
+    'Owned the full stack: React front ends, Java / Spring Boot service layers, secure REST APIs, and MySQL / MariaDB data design - with Redis and Redis Streams for caching and asynchronous processing.',
     'Standardized security across systems with JWT authentication and role-based access control (RBAC), reducing duplicated access logic and strengthening governance.',
-    'Automated manual, fragmented business processes into auditable workflows — improving operational efficiency, turnaround, and visibility.',
-    'Actively expanding into AI engineering — exploring Agentic AI, generative models, and AI-assisted development to bring intelligent automation into the next generation of systems I build.',
+    'Automated manual, fragmented business processes into auditable workflows - improving operational efficiency, turnaround, and visibility.',
+    'Actively expanding into AI engineering - exploring Agentic AI, generative models, and AI-assisted development to bring intelligent automation into the next generation of systems I build.',
     'Recognized with the Outstanding Excellence Award (2023) and a Client Recognition Award (2024) for measurable business impact.',
   ],
   tech: [
@@ -153,10 +153,10 @@ export const experience = {
 };
 
 // ============================================================================
-//  CASE STUDIES — internally STAR-ordered, written as engineering success
+//  CASE STUDIES - internally STAR-ordered, written as engineering success
 //  stories (Business Problem -> Ownership -> Solution -> Impact). No STAR labels.
 //  To add a real screenshot, set `image: '<filename>.png'` (place file in
-//  public/) — the component shows it instead of the schematic preview.
+//  public/) - the component shows it instead of the schematic preview.
 //  `host` overrides the address shown in the preview window's title bar
 //  (defaults to `<id>.vivant360.app` for the Vivant360 systems).
 // ============================================================================
@@ -204,7 +204,7 @@ export const caseStudies = [
     image: null,
     award: 'Outstanding Excellence Award · 2023',
     overview:
-      'An enterprise B2B insurance portal that automates the policy and quote lifecycle and streamlines high-volume insurance operations for business partners — recognized with the Outstanding Excellence Award 2023.',
+      'An enterprise B2B insurance portal that automates the policy and quote lifecycle and streamlines high-volume insurance operations for business partners - recognized with the Outstanding Excellence Award 2023.',
     challenge:
       'Insurance operations relied on slow, manual quote and policy workflows that were hard to scale as partner and transaction volume grew.',
     contribution: [
@@ -219,7 +219,7 @@ export const caseStudies = [
     ],
     tech: ['Java', 'Spring Boot', 'Hibernate', 'REST APIs', 'React.js', 'Redis', 'Redis Streams', 'MySQL / MariaDB', 'Microservices'],
     outcome:
-      'Automated core insurance operations, improved processing throughput and reliability under load, and significantly reduced manual effort across the quote and policy lifecycle — earning the Outstanding Excellence Award 2023 for its contribution to operational excellence.',
+      'Automated core insurance operations, improved processing throughput and reliability under load, and significantly reduced manual effort across the quote and policy lifecycle - earning the Outstanding Excellence Award 2023 for its contribution to operational excellence.',
     learnings:
       'Asynchronous processing and caching are force-multipliers for transaction-heavy workflows; modeling the domain cleanly keeps the platform extensible as new products are added.',
     metrics: [
@@ -254,7 +254,7 @@ export const caseStudies = [
     outcome:
       'Streamlined the warranty claim lifecycle, improved operational efficiency and process visibility, and reduced delays caused by manual handoffs.',
     learnings:
-      'Encoding business processes as explicit, auditable workflows makes operations measurable — and therefore continuously improvable.',
+      'Encoding business processes as explicit, auditable workflows makes operations measurable - and therefore continuously improvable.',
     metrics: [
       { value: 'End-to-End', label: 'Claim Workflow' },
       { value: 'Automated', label: 'Routing' },
@@ -271,7 +271,7 @@ export const caseStudies = [
     image: null,
     award: 'Client Recognition Award · 2024',
     overview:
-      'A customer-service platform that centralizes complaint intake, tracking, and escalation to improve issue visibility and service responsiveness — recognized with the Client Recognition Award 2024.',
+      'A customer-service platform that centralizes complaint intake, tracking, and escalation to improve issue visibility and service responsiveness - recognized with the Client Recognition Award 2024.',
     challenge:
       'Complaints were hard to track and slow to resolve because intake, routing, and escalation were manual and lacked visibility.',
     contribution: [
@@ -286,7 +286,7 @@ export const caseStudies = [
     ],
     tech: ['Java', 'Spring Boot', 'Hibernate', 'REST APIs', 'React.js', 'MySQL / MariaDB', 'RBAC'],
     outcome:
-      'Improved issue visibility, tracking, and service responsiveness — earning the Client Recognition Award 2024 for measurable service improvement.',
+      'Improved issue visibility, tracking, and service responsiveness - earning the Client Recognition Award 2024 for measurable service improvement.',
     learnings:
       'Visibility and clear ownership are often the biggest levers for customer-experience outcomes.',
     metrics: [
@@ -321,7 +321,7 @@ export const caseStudies = [
     outcome:
       'Enabled the business to self-serve content generation, removing an engineering bottleneck and accelerating turnaround for content and document changes.',
     learnings:
-      'Building platforms — not just features — multiplies impact by empowering non-engineers to move on their own.',
+      'Building platforms - not just features - multiplies impact by empowering non-engineers to move on their own.',
     metrics: [
       { value: 'Self-Service', label: 'Platform' },
       { value: 'Dynamic', label: 'Content Generation' },
@@ -331,7 +331,7 @@ export const caseStudies = [
   },
   {
     id: 'abdullax',
-    name: 'AbdullaX — Recruiter-Facing RAG Assistant',
+    name: 'AbdullaX - Recruiter-Facing RAG Assistant',
     domain: 'Generative AI · Personal Project',
     iconKey: 'sparkle',
     gradient: 'from-cyan-300 to-emerald-400',
@@ -339,21 +339,21 @@ export const caseStudies = [
     host: 'abdullax.onrender.com',
     repo: 'https://github.com/ababeel-ceo/AbdullaX',
     overview:
-      'The AI assistant answering recruiter questions on this site. A retrieval-augmented generation (RAG) service I designed and shipped in Python — a stack outside my day-to-day Java work — to learn modern GenAI engineering by building a production system rather than following a tutorial.',
+      'The AI assistant answering recruiter questions on this site. A retrieval-augmented generation (RAG) service I designed and shipped in Python - a stack outside my day-to-day Java work - to learn modern GenAI engineering by building a production system rather than following a tutorial.',
     challenge:
-      'A CV answers only the questions it was written for. I wanted a recruiter to be able to ask anything about my background and get an accurate, grounded answer — which rules out an assistant that invents credentials. Building it also meant moving from Java and Spring Boot into Python, FastAPI, and the GenAI ecosystem under my own direction.',
+      'A CV answers only the questions it was written for. I wanted a recruiter to be able to ask anything about my background and get an accurate, grounded answer - which rules out an assistant that invents credentials. Building it also meant moving from Java and Spring Boot into Python, FastAPI, and the GenAI ecosystem under my own direction.',
     contribution: [
-      'Moved from Java and Spring Boot into Python and the GenAI ecosystem by shipping a real service end to end — architecture, implementation, tests, and deployment — rather than following a guided tutorial.',
-      'Modelled the assistant as a five-step LangGraph pipeline — history compaction, query reformulation with out-of-scope guardrails, an FAQ fast path, category-filtered retrieval, and grounded generation — keeping each step small, testable, and swappable.',
+      'Moved from Java and Spring Boot into Python and the GenAI ecosystem by shipping a real service end to end - architecture, implementation, tests, and deployment - rather than following a guided tutorial.',
+      'Modelled the assistant as a five-step LangGraph pipeline - history compaction, query reformulation with out-of-scope guardrails, an FAQ fast path, category-filtered retrieval, and grounded generation - keeping each step small, testable, and swappable.',
       'Made "no hallucination" a design constraint rather than a prompt: the generator answers only from retrieved context and states plainly when it has none.',
       'Hid the model provider behind a small LLM protocol, so switching between Groq and Claude is a one-line environment change.',
-      'Wrote a fully offline, deterministic pytest suite — a hashing embedder and a scripted LLM stand in for the real model and provider, so the tests need no API key and no model download.',
+      'Wrote a fully offline, deterministic pytest suite - a hashing embedder and a scripted LLM stand in for the real model and provider, so the tests need no API key and no model download.',
       'Deployed under a hard 512 MB memory ceiling, serving MiniLM embeddings through onnxruntime because the torch-based path is OOM-killed during startup at that instance size.',
     ],
     architecture: [
       'FastAPI service exposing /chat, /ingest-documents, and /health, with the pipeline orchestrated as a LangGraph graph of plain (state, deps) → dict steps.',
       'ChromaDB vector store over all-MiniLM-L6-v2 (384-dim) embeddings served via onnxruntime, with metadata filtering that scopes retrieval by document category.',
-      'Pluggable LLM layer — Groq (llama-3.3-70b-versatile) by default, Claude behind the same protocol — with an extractive fallback answer when no provider is reachable.',
+      'Pluggable LLM layer - Groq (llama-3.3-70b-versatile) by default, Claude behind the same protocol - with an extractive fallback answer when no provider is reachable.',
       'Layered graceful degradation: a downed vector store, an unavailable model, or an unhandled error each return a transparent answer instead of failing the request.',
     ],
     tech: [
@@ -361,9 +361,9 @@ export const caseStudies = [
       'Groq', 'Claude', 'pytest', 'Render',
     ],
     outcome:
-      'The assistant is live on this site — the chat widget in the corner is this service — answering recruiter questions with grounded, source-backed responses inside a free-tier memory budget. More usefully, it carried me from Java and Spring Boot to a working production GenAI system: retrieval, orchestration, provider abstraction, and the deployment constraints that come with them.',
+      'The assistant is live on this site - the chat widget in the corner is this service - answering recruiter questions with grounded, source-backed responses inside a free-tier memory budget. More usefully, it carried me from Java and Spring Boot to a working production GenAI system: retrieval, orchestration, provider abstraction, and the deployment constraints that come with them.',
     learnings:
-      'Constraints teach faster than tutorials. A 512 MB ceiling forced a real decision about how embeddings are served, and designing for "never invent an answer" turned out to be an architecture problem — guardrails, grounding, and fallbacks — long before it was a prompting one.',
+      'Constraints teach faster than tutorials. A 512 MB ceiling forced a real decision about how embeddings are served, and designing for "never invent an answer" turned out to be an architecture problem - guardrails, grounding, and fallbacks - long before it was a prompting one.',
     metrics: [
       { value: 'Java → Python', label: 'Self-Directed Stack Shift' },
       { value: '5-Step', label: 'LangGraph RAG Pipeline' },
@@ -373,7 +373,7 @@ export const caseStudies = [
   },
   {
     id: 'scroll-blocker',
-    name: 'Scroll Blocker — Focus & Digital Wellbeing',
+    name: 'Scroll Blocker - Focus & Digital Wellbeing',
     domain: 'Native Android · Personal Project',
     iconKey: 'target',
     gradient: 'from-violet-400 to-brand-500',
@@ -383,11 +383,11 @@ export const caseStudies = [
     overview:
       'A self-initiated native Android app that curbs compulsive infinite scrolling system-wide by intercepting scroll gestures through the Android Accessibility Service. With Kotlin outside my core stack, I paired strong engineering fundamentals with AI-assisted development to learn the ecosystem and ship a working MVP fast.',
     challenge:
-      'Two challenges in one: infinite-scroll feeds are deliberately engineered to be habit-forming, and most “focus” tools can only block an entire app — while I was also building in Kotlin and the Android platform, a stack outside my primary experience.',
+      'Two challenges in one: infinite-scroll feeds are deliberately engineered to be habit-forming, and most “focus” tools can only block an entire app - while I was also building in Kotlin and the Android platform, a stack outside my primary experience.',
     contribution: [
-      'Conceived, architected, and shipped the MVP solo — owning product direction, UX, and engineering from a blank repository to a working build.',
+      'Conceived, architected, and shipped the MVP solo - owning product direction, UX, and engineering from a blank repository to a working build.',
       'Rapidly learned Kotlin and the Android platform on a real project, using AI-assisted development to accelerate research, implementation, and troubleshooting.',
-      'Evaluated, refined, and validated AI-generated solutions with code review and testing — adapting them to the app’s architecture rather than accepting them as-is.',
+      'Evaluated, refined, and validated AI-generated solutions with code review and testing - adapting them to the app’s architecture rather than accepting them as-is.',
       'Built the core blocking engine that detects and interrupts scroll gestures globally using the Android Accessibility Service.',
       'Designed a guided onboarding flow (Welcome → Permissions → Dashboard) and persisted state with Jetpack DataStore under a clean MVVM architecture.',
     ],
@@ -398,7 +398,7 @@ export const caseStudies = [
     ],
     tech: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Accessibility Service', 'DataStore', 'AI-Assisted Dev', 'Gradle (KTS)'],
     outcome:
-      'Delivered a working MVP in an unfamiliar ecosystem by combining software-engineering fundamentals with AI-assisted development workflows — demonstrating the ability to rapidly learn new technologies, adapt to unfamiliar environments, and translate ideas into practical software efficiently.',
+      'Delivered a working MVP in an unfamiliar ecosystem by combining software-engineering fundamentals with AI-assisted development workflows - demonstrating the ability to rapidly learn new technologies, adapt to unfamiliar environments, and translate ideas into practical software efficiently.',
     learnings:
       'The real lesson was process over platform: with solid fundamentals and a disciplined approach to validating AI-generated code, limited prior exposure to a stack is no longer a barrier to shipping quality software.',
     metrics: [
@@ -433,13 +433,7 @@ export const awards = [
   },
 ];
 
-export const certifications = [
-  { title: 'Spring Professional', org: 'VMware Tanzu', year: '2024' },
-  { title: 'Oracle Certified Java SE', org: 'Oracle', year: '2023' },
-  { title: 'AWS Cloud Practitioner', org: 'Amazon Web Services', year: '2024' },
-];
-
-// Technical expertise — organized by business capability, not random buckets.
+// Technical expertise - organized by business capability, not random buckets.
 export const expertise = [
   {
     title: 'Backend Engineering',
@@ -476,7 +470,7 @@ export const expertise = [
 export const whyHireMe = [
   {
     title: 'Enterprise Software Engineer',
-    desc: 'I deliver production-grade applications that run real business operations — not demos or prototypes.',
+    desc: 'I deliver production-grade applications that run real business operations - not demos or prototypes.',
     iconKey: 'building',
   },
   {
@@ -486,7 +480,7 @@ export const whyHireMe = [
   },
   {
     title: 'Award-Winning Contributor',
-    desc: 'Recognized twice — Outstanding Excellence (2023) and Client Recognition (2024) — for measurable business impact.',
+    desc: 'Recognized twice - Outstanding Excellence (2023) and Client Recognition (2024) - for measurable business impact.',
     iconKey: 'trophy',
   },
   {
@@ -506,7 +500,7 @@ export const whyHireMe = [
   },
   {
     title: 'AI-Augmented Engineer',
-    desc: 'An AI enthusiast exploring Agentic AI and generative tools — experimenting with leading models and frameworks to automate workflows and accelerate delivery.',
+    desc: 'An AI enthusiast exploring Agentic AI and generative tools - experimenting with leading models and frameworks to automate workflows and accelerate delivery.',
     iconKey: 'sparkle',
   },
 ];

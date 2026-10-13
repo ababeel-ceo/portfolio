@@ -15,7 +15,7 @@ export default function WhyHireMe() {
               The case for an <span className="gradient-text">interview</span>.
             </h2>
             <p className="section-subtitle">
-              Seven reasons I can own and deliver production software from day one — not just write
+              Seven reasons I can own and deliver production software from day one - not just write
               code.
             </p>
           </div>

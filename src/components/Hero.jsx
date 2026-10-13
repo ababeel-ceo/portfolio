@@ -18,10 +18,14 @@ function useTypewriter(words, { typeMs = 72, deleteMs = 34, holdMs = 2000 } = {}
   const [reduced] = useState(prefersReducedMotion);
   const [index, setIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
-  const [text, setText] = useState(() => (prefersReducedMotion() ? words[0] : ''));
+  // Starts empty on every render path so the prerendered markup hydrates cleanly.
+  const [text, setText] = useState('');
 
   useEffect(() => {
-    if (reduced) return;
+    if (reduced) {
+      setText(words[0]);
+      return;
+    }
     const word = words[index % words.length];
 
     if (!deleting && text === word) {
@@ -48,14 +52,14 @@ function useTypewriter(words, { typeMs = 72, deleteMs = 34, holdMs = 2000 } = {}
 }
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
   const role = useTypewriter(hero.roles);
 
-  useEffect(() => setMounted(true), []);
-
-  /** Staggered entrance props for the hero's stacked elements. */
+  /**
+   * Staggered entrance props for the hero's stacked elements. Pure CSS, so the
+   * prerendered hero animates in on first paint without waiting for JS.
+   */
   const enter = (delay, extra = '') => ({
-    className: `${extra} ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`.trim(),
+    className: `${extra} animate-fade-in-up`.trim(),
     style: { animationDelay: delay, animationFillMode: 'both' },
   });
 
@@ -89,7 +93,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-12 grid items-start gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-10">
-          {/* Left — identity & value proposition */}
+          {/* Left - identity & value proposition */}
           <div className="lg:col-span-7">
             <p
               {...enter(
@@ -115,7 +119,7 @@ export default function Hero() {
                 'mt-3 flex min-h-[2.4rem] items-center font-display text-2xl font-medium tracking-[-0.02em] sm:text-[2rem] lg:min-h-[3rem]'
               )}
             >
-              {/* The animated text is decorative — assistive tech reads the static list. */}
+              {/* The animated text is decorative - assistive tech reads the static list. */}
               <span className="sr-only">{hero.roles.join(', ')}</span>
               <span className="gradient-text" aria-hidden="true">
                 {role}
@@ -176,7 +180,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — recruiter snapshot rail */}
+          {/* Right - recruiter snapshot rail */}
           <div {...enter('0.34s', 'space-y-4 lg:col-span-5')}>
             <div className="card card-topline p-6 md:p-7">
               <div className="flex items-center justify-between gap-3">

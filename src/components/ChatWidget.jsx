@@ -3,7 +3,7 @@ import { useChat } from '../hooks/useChat';
 import { Icons } from './Icons';
 
 const GREETING =
-  "Hi — I'm AbdullaX, Abdulla's AI assistant. Ask me anything about his experience, projects, skills, or impact.";
+  "Hi - I'm AbdullaX, Abdulla's AI assistant. Ask me anything about his experience, projects, skills, or impact.";
 
 const STARTERS = [
   'What is Abdulla’s experience?',
@@ -24,13 +24,17 @@ const NUDGE_LIFETIME_MS = 15000;
  */
 function useWelcomeNudge(isChatOpen) {
   const [visible, setVisible] = useState(false);
-  const [seen, setSeen] = useState(() => {
+  // Starts retired on every render path so the prerendered markup hydrates
+  // cleanly; the real session flag is read once mounted.
+  const [seen, setSeen] = useState(true);
+
+  useEffect(() => {
     try {
-      return sessionStorage.getItem(NUDGE_KEY) === '1';
+      setSeen(sessionStorage.getItem(NUDGE_KEY) === '1');
     } catch {
-      return true; // storage blocked — stay quiet rather than nag on every view
+      /* storage blocked - stay quiet rather than nag on every view */
     }
-  });
+  }, []);
 
   const dismiss = useCallback(() => {
     setVisible(false);
@@ -116,7 +120,7 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Welcome nudge — a hint, never an interruption */}
+      {/* Welcome nudge - a hint, never an interruption */}
       {nudge.visible && !open && (
         <div
           role="status"
@@ -132,7 +136,7 @@ export default function ChatWidget() {
             <button
               onClick={nudge.dismiss}
               aria-label="Dismiss chat suggestion"
-              className="-mr-1 -mt-1 ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-surface-500 transition-colors hover:bg-white/[0.06] hover:text-white"
+              className="-mr-1 -mt-1 ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-surface-400 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
               <Icons.close className="h-3.5 w-3.5" />
             </button>
@@ -297,7 +301,7 @@ export default function ChatWidget() {
                 onKeyDown={onKeyDown}
                 placeholder="Ask about Abdulla…"
                 maxLength={1000}
-                className="max-h-[120px] flex-1 resize-none bg-transparent text-sm leading-relaxed text-surface-100 outline-none placeholder:text-surface-500"
+                className="max-h-[120px] flex-1 resize-none bg-transparent text-sm leading-relaxed text-surface-100 outline-none placeholder:text-surface-400"
               />
               <button
                 onClick={() => submit()}
@@ -309,7 +313,7 @@ export default function ChatWidget() {
               </button>
             </div>
             <p className="mt-2 text-center text-[10px] text-surface-600">
-              AbdullaX may be imprecise — verify anything important.
+              AbdullaX may be imprecise - verify anything important.
             </p>
           </div>
         </div>

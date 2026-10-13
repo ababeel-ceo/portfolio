@@ -1,5 +1,5 @@
 // ============================================================================
-//  Chat API client — talks to the AbdullaX backend (`POST /chat`).
+//  Chat API client - talks to the AbdullaX backend (`POST /chat`).
 //  The backend contract (see backend/app/schemas.py):
 //    request : { conversation_id, user_message, chat_history: [{role, content}] }
 //    response: { response, sources[], follow_ups[], answered_by, ... }
@@ -37,7 +37,7 @@ export function getConversationId() {
     }
     return id;
   } catch {
-    // localStorage blocked (private mode / SSR) — fall back to a per-load id.
+    // localStorage blocked (private mode / SSR) - fall back to a per-load id.
     return generateId();
   }
 }
@@ -74,7 +74,7 @@ export async function sendChatMessage({ message, history = [], conversationId, s
     else signal.addEventListener('abort', () => controller.abort(), { once: true });
   }
 
-  // Only the role/content fields are part of the contract — strip anything else
+  // Only the role/content fields are part of the contract - strip anything else
   // the UI may have attached (id, sources, timestamps…).
   const chat_history = history
     .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && m.content)
@@ -121,7 +121,7 @@ export async function sendChatMessage({ message, history = [], conversationId, s
   };
 }
 
-/** Lightweight health probe — used to show an "offline" hint in the widget. */
+/** Lightweight health probe - used to show an "offline" hint in the widget. */
 export async function checkHealth() {
   try {
     const res = await fetch(`${API_BASE_URL}/health`, { method: 'GET' });

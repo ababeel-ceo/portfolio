@@ -29,7 +29,7 @@ export function useChat({ greeting } = {}) {
       const content = (text || '').trim();
       if (!content || isLoading) return;
 
-      // Snapshot the prior turns BEFORE adding the new user message — that's the
+      // Snapshot the prior turns BEFORE adding the new user message - that's the
       // history the backend expects (user_message is sent separately).
       const history = messages
         .filter((m) => m.role === 'user' || m.role === 'assistant')

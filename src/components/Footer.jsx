@@ -70,18 +70,18 @@ export default function Footer() {
                 );
               })}
             </div>
-            <p className="mt-5 text-xs text-surface-500">{profile.email}</p>
-            <p className="mt-1 text-xs text-surface-500">{profile.location}</p>
+            <p className="mt-5 text-xs text-surface-400">{profile.email}</p>
+            <p className="mt-1 text-xs text-surface-400">{profile.location}</p>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/[0.06] pt-6 sm:flex-row">
-          <p className="text-xs text-surface-500">
+          <p className="text-xs text-surface-400">
             © {year} {profile.name}. Built with React &amp; Tailwind CSS.
           </p>
           <a
             href="#hero"
-            className="inline-flex items-center gap-2 text-xs text-surface-500 transition-colors duration-300 hover:text-primary-200"
+            className="inline-flex items-center gap-2 text-xs text-surface-400 transition-colors duration-300 hover:text-primary-200"
           >
             Back to top
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/[0.08]">

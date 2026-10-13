@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  Source for public/og-image.png - the 1200x630 link-preview card used by
+  LinkedIn, WhatsApp, Slack, X, etc. After editing, regenerate from the repo root:
+
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new --hide-scrollbars ^
+      --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=8000 ^
+      --screenshot="%CD%\public\og-image.png" "%CD%\scripts\og-image.html"
+
+  LinkedIn caches previews; refresh it at https://www.linkedin.com/post-inspector/
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600&family=JetBrains+Mono:wght@500&display=block" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #050c10;
+    color: #e2edf1;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  .glow-a, .glow-b { position: absolute; border-radius: 50%; filter: blur(120px); }
+  .glow-a { width: 620px; height: 620px; left: -200px; top: -160px; background: rgba(35, 138, 175, 0.30); }
+  .glow-b { width: 520px; height: 520px; right: -160px; bottom: -220px; background: rgba(19, 71, 90, 0.55); }
+  .grid {
+    position: absolute; inset: 0; opacity: 0.07;
+    background-image:
+      linear-gradient(rgba(106, 212, 237, 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(106, 212, 237, 0.6) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, #000 30%, transparent 100%);
+  }
+  .card { position: relative; height: 100%; padding: 64px 72px; display: flex; flex-direction: column; }
+  .top { display: flex; align-items: center; gap: 16px; }
+  .top img { width: 56px; height: 56px; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
+  .top .mono { font-size: 15px; color: #93b0bb; }
+  h1 {
+    margin-top: 56px;
+    font-family: Sora, Inter, sans-serif; font-weight: 600;
+    font-size: 104px; line-height: 1; letter-spacing: -0.04em; color: #fff;
+  }
+  .role {
+    margin-top: 18px;
+    font-family: Sora, Inter, sans-serif; font-weight: 600;
+    font-size: 48px; letter-spacing: -0.025em;
+    background: linear-gradient(90deg, #a3e7f7, #38bcdc 55%, #238aaf);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { margin-top: 18px; font-size: 24px; color: #93b0bb; }
+  .stats { margin-top: auto; display: flex; gap: 14px; }
+  .stat {
+    flex: 1; padding: 18px 22px; border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .stat b { display: block; font-family: Sora, Inter, sans-serif; font-weight: 600; font-size: 34px; letter-spacing: -0.03em; color: #fff; }
+  .stat .mono { display: block; margin-top: 6px; font-size: 12px; letter-spacing: 0.14em; color: #5f8091; }
+</style>
+</head>
+<body>
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+  <div class="grid"></div>
+  <div class="card">
+    <div class="top">
+      <img src="../public/favicon.svg" alt="" />
+      <span class="mono">abdullathepro.online</span>
+    </div>
+    <h1>Abdulla B</h1>
+    <div class="role">Java Full Stack Developer</div>
+    <p class="sub">Spring Boot · React · Microservices — enterprise software for IAM, insurance &amp; workflows</p>
+    <div class="stats">
+      <div class="stat"><b>4+</b><span class="mono">Years experience</span></div>
+      <div class="stat"><b>6+</b><span class="mono">Enterprise apps</span></div>
+      <div class="stat"><b>5.7M+</b><span class="mono">Transactions processed</span></div>
+      <div class="stat"><b>2</b><span class="mono">Corporate awards</span></div>
+    </div>
+  </div>
+</body>
+</html>

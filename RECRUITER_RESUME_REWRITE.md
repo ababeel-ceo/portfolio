@@ -178,7 +178,7 @@ Improved version:
 
 ## 8. Optimized Professional Summary
 
-Software Engineer with 3+ years of experience building high-throughput enterprise applications using Java, Spring Boot, React.js, MySQL, Redis, and microservices. Proven track record of scaling transaction-heavy systems from 2.5M to 5.7M+ annual transactions, improving throughput by 128 percent, reducing manual operations by 80 percent, and cutting deployment time by 73 percent. Strong in distributed systems, REST APIs, event-driven architecture, authentication and authorization, performance optimization, and production reliability. Target roles: Software Engineer, Full Stack Developer, Java Developer, and SDE-2.
+Software Engineer with 4+ years of experience building high-throughput enterprise applications using Java, Spring Boot, React.js, MySQL, Redis, and microservices. Proven track record of scaling transaction-heavy systems from 2.5M to 5.7M+ annual transactions, improving throughput by 128 percent, reducing manual operations by 80 percent, and cutting deployment time by 73 percent. Strong in distributed systems, REST APIs, event-driven architecture, authentication and authorization, performance optimization, and production reliability. Target roles: Software Engineer, Full Stack Developer, Java Developer, and SDE-2.
 
 ## 9. Optimized Skills Section
 
@@ -216,7 +216,7 @@ Tirunelveli, India | +91 9043195825 | abdullahsmsapk@gmail.com
 
 ### Professional Summary
 
-Software Engineer with 3+ years of experience building scalable enterprise systems using Java, Spring Boot, React.js, MySQL, Redis, and microservices. Delivered measurable production impact by scaling a transaction-heavy insurance platform from 2.5M to 5.7M+ annual transactions, improving throughput by 128 percent, reducing manual operations by 80 percent, and cutting release time by 73 percent. Experienced in distributed systems, REST APIs, JWT-based security, event-driven architecture, CI/CD, and performance optimization.
+Software Engineer with 4+ years of experience building scalable enterprise systems using Java, Spring Boot, React.js, MySQL, Redis, and microservices. Delivered measurable production impact by scaling a transaction-heavy insurance platform from 2.5M to 5.7M+ annual transactions, improving throughput by 128 percent, reducing manual operations by 80 percent, and cutting release time by 73 percent. Experienced in distributed systems, REST APIs, JWT-based security, event-driven architecture, CI/CD, and performance optimization.
 
 ### Technical Skills
 

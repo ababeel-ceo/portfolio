@@ -39,6 +39,7 @@ bun.lockb
 # Build Outputs
 # =========================================================
 dist/
+dist-ssr/
 build/
 out/
 coverage/

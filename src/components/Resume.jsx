@@ -25,7 +25,7 @@ export default function Resume() {
         <div ref={ref} className={`reveal ${isVisible ? 'visible' : ''}`}>
           <div className="card card-topline overflow-hidden">
             <div className="grid md:grid-cols-2">
-              {/* Preview — opens the real file in a new tab */}
+              {/* Preview - opens the real file in a new tab */}
               <a
                 href={links.resume}
                 target="_blank"
@@ -67,8 +67,8 @@ export default function Resume() {
                   Your next hire, <span className="gradient-text">on one page.</span>
                 </h2>
                 <p className="mb-8 max-w-md leading-relaxed text-surface-300 text-pretty">
-                  3+ years of enterprise delivery, six production applications, and two corporate
-                  awards — summarized for a fast recruiter scan.
+                  4+ years of enterprise delivery, six production applications, and two corporate
+                  awards - summarized for a fast recruiter scan.
                 </p>
 
                 <div className="flex flex-col gap-3 sm:flex-row">
@@ -91,7 +91,7 @@ export default function Resume() {
                   </a>
                 </div>
 
-                <p className="mt-5 inline-flex items-center gap-2 text-xs text-surface-500">
+                <p className="mt-5 inline-flex items-center gap-2 text-xs text-surface-400">
                   <Icons.document className="h-3.5 w-3.5" />
                   PDF format · opens in a new tab
                 </p>

@@ -64,11 +64,12 @@ export default function Navbar() {
                 : 'border-white/[0.05] bg-surface-950/40 backdrop-blur-md'
             }`}
         >
-          <a href="#hero" className="group flex items-center gap-3" aria-label={`${profile.name} — home`}>
+          <a href="#hero" className="group flex items-center gap-3">
             <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary-300 to-primary-600 text-[13px] font-bold text-surface-950 shadow-[0_8px_20px_-8px_rgba(56,188,220,0.8)] transition-transform duration-500 group-hover:scale-105">
               AB
             </span>
-            <span className="hidden sm:flex flex-col leading-tight">
+            {/* Screen-reader-only on mobile, so the link is always named after the visible text. */}
+            <span className="sr-only sm:not-sr-only sm:flex flex-col leading-tight">
               <span className="font-display text-[14px] font-semibold tracking-[-0.01em] text-white">
                 {profile.name}
               </span>

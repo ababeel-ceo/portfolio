@@ -1,10 +1,9 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { awards, certifications } from '../data/profile';
+import { awards } from '../data/profile';
 import { Icons } from './Icons';
 
 export default function Achievements() {
   const [ref, isVisible] = useScrollReveal();
-  const [certRef, certVisible] = useScrollReveal();
 
   return (
     <section id="awards" className="section-padding section-seam relative bg-white/[0.015]">
@@ -16,7 +15,7 @@ export default function Achievements() {
               Recognized for <span className="gradient-text">measurable impact</span>.
             </h2>
             <p className="section-subtitle">
-              Two corporate awards in three years — for software that improved real operations and
+              Two corporate awards in three years - for software that improved real operations and
               earned client trust.
             </p>
           </div>
@@ -61,29 +60,6 @@ export default function Achievements() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div ref={certRef} className={`reveal ${certVisible ? 'visible' : ''} mt-14`}>
-          <div className="mb-5 flex items-center gap-4">
-            <span className="kicker">Certifications</span>
-            <div className="h-px flex-1 bg-white/[0.07]" />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {certifications.map((cert) => (
-              <div key={cert.title} className="card card-hover flex items-center gap-3.5 p-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-500/10 text-primary-300">
-                  <Icons.check className="h-4 w-4" />
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-surface-100">{cert.title}</p>
-                  <p className="mt-0.5 text-xs text-surface-400">
-                    {cert.org} · {cert.year}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

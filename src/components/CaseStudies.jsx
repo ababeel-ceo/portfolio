@@ -11,7 +11,7 @@ function Preview({ study }) {
         <span className="preview-dot" />
         <span className="preview-dot" />
         <span className="preview-dot" />
-        <span className="ml-2 truncate font-mono text-[10px] text-surface-500">
+        <span className="ml-2 truncate font-mono text-[10px] text-surface-400">
           {study.host ?? `${study.id}.vivant360.app`}
         </span>
       </div>
@@ -66,7 +66,7 @@ function AwardBadge({ award }) {
   );
 }
 
-/* Shared detail body — rendered inside the desktop panel and the mobile accordion.
+/* Shared detail body - rendered inside the desktop panel and the mobile accordion.
    `showTitle` is false on mobile because the card header already names the study. */
 function StudyDetail({ study, showTitle = true }) {
   const Icon = Icons[study.iconKey];
@@ -150,7 +150,7 @@ function StudyDetail({ study, showTitle = true }) {
         <div className="mt-6 flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
           <Icons.sparkle className="mt-0.5 h-5 w-5 shrink-0 text-primary-300" />
           <p className="text-sm leading-relaxed text-surface-300 text-pretty">
-            <span className="font-semibold text-surface-100">Key takeaway — </span>
+            <span className="font-semibold text-surface-100">Key takeaway - </span>
             {study.learnings}
           </p>
         </div>
@@ -246,7 +246,7 @@ export default function CaseStudies() {
                           >
                             {cs.name}
                           </h3>
-                          <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-surface-500">
+                          <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-surface-400">
                             {cs.domain}
                           </p>
                           {cs.award && (
@@ -304,7 +304,7 @@ export default function CaseStudies() {
                         {cs.name}
                       </h3>
                       <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-surface-500">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-surface-400">
                           {cs.domain}
                         </p>
                         {cs.award && (
